@@ -17,7 +17,7 @@
     "@sanity/color-input": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.1.0",
-    "@sanity/vision": "3.21.3",
+    "@sanity/vision": "3.23.0",
     "get-youtube-id": "^1.0.1",
     "groqd": "^0.15.10",
     "groqd-playground": "^0.0.18",
