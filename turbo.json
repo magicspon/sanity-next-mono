@@ -1,0 +1,51 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"]
+    },
+    "dev": {},
+    "lint": {},
+    "clean": {
+      "cache": false
+    },
+    "storybook": {
+      "cache": false
+    }
+  },
+  "globalEnv": [
+    "CI",
+    "NO_SERVER",
+
+    "NEXT_PUBLIC_ALGOLIA_APPLICATION_ID",
+    "NEXT_PUBLIC_ALGOLIA_SEARCH_KEY",
+    "ALGOLIA_APPLICATION_ADMIN_ID",
+
+    "SANITY_STUDIO_WEBHOOK_ALGOLIA",
+    "SANITY_STUDIO_PROJECT_ID",
+    "NEXT_PUBLIC_SANITY_PROJECT_ID",
+    "SANITY_STUDIO_READ_TOKEN",
+    "SANITY_STUDIO_WRITE_TOKEN",
+    "SANITY_DEPLOY_TOKEN",
+    "SANITY_REVALIDATE_SECRET",
+
+    "NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN",
+
+    "VERCEL_URL",
+    "VERCEL_ENV",
+
+    "POSTMARK_ACCOUNT_API_TOKEN",
+    "POSTMARK_SERVER_API_TOKEN",
+    "POSTMARK_EMAIL_FROM",
+
+    "MAILCHIMP_API_KEY",
+    "MAILCHIMP_SERVER_PREFIX",
+    "MAILCHIMP_LIST_ID",
+
+    "KV_URL",
+    "KV_REST_API_URL",
+    "KV_REST_API_TOKEN",
+    "KV_REST_API_READ_ONLY_TOKEN"
+  ]
+}

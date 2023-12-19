@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "root": true,
+  "extends": ["plugin:@next/next/recommended", "custom/base"]
+}

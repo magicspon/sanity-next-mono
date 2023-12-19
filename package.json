@@ -1,0 +1,69 @@
+{
+  "name": "next-sanity-mono",
+  "private": true,
+  "author": {
+    "email": "hello@spon.io",
+    "name": "Dave Stockley",
+    "url": "https://spon.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:magicspon/next-sanity-mono.git"
+  },
+  "license": "MIT",
+  "packageManager": "yarn@1.22.17",
+  "scripts": {
+    "dev": "turbo dev --filter=web",
+    "start": "turbo run start",
+    "start:ci": "INSECURE_AUTH=true turbo run start",
+    "build": "turbo build --filter=web",
+    "deploy": "cd apps/cms; yarn deploy",
+    "new:component": "hygen new component",
+    "new:hook": "hygen new hook",
+    "clean:workspaces": "turbo clean",
+    "clean": "rm -rf node_modules",
+    "pretest": "yarn prisma:reset --force",
+    "test": "turbo test -- --passWithNoTests",
+    "lint": "turbo lint --filter=!react-email-client && manypkg check",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,css}\"",
+    "prepare": "husky install",
+    "storybook": "turbo run storybook --filter=ui",
+    "build-storybook": "turbo run build-storybook --filter=ui"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@manypkg/cli": "^0.21.1",
+    "@total-typescript/ts-reset": "^0.5.1",
+    "commitlint": "^18.4.3",
+    "eslint": "8.56.0",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "hygen": "^6.2.11",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "tsconfig": "*",
+    "turbo": "^1.11.2",
+    "typescript": "^5.3.3"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/**/*"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "yarn": "^1.2"
+  },
+  "quokka": {
+    "babel": {
+      "env": "test",
+      "polyfill": false
+    },
+    "installPackageCommand": "yarn add {packageName}",
+    "env": {
+      "params": {
+        "env": "NODE_ENV=test"
+      }
+    }
+  }
+}

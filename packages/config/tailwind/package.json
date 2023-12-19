@@ -1,0 +1,25 @@
+{
+  "name": "tailwind-config",
+  "version": "1.0.1",
+  "main": "tailwind.config.ts",
+  "types": "tailwind.config.ts",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "postcss.js"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.7"
+  },
+  "dependencies": {
+    "@capsizecss/core": "^3.1.1",
+    "@capsizecss/metrics": "^1.2.0",
+    "@capsizecss/unpack": "^1.0.0",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/typography": "^0.5.9",
+    "@themosaad/tailwindcss-capsize": "^1.0.0",
+    "tailwindcss-animate": "^1.0.6"
+  }
+}

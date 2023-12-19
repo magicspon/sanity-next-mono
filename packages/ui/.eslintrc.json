@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "root": true,
+  "extends": ["custom/base", "plugin:storybook/recommended"]
+}

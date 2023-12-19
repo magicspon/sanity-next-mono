@@ -1,0 +1,9 @@
+{
+  "name": "utils",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "nanoid": "^5.0.4",
+    "slugify": "^1.6.6"
+  }
+}
