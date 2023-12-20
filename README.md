@@ -1,5 +1,3 @@
-[![Lint & Typecheck](https://github.com/magicspon/example/actions/workflows/lint.yml/badge.svg)](https://github.com/magicspon/example/actions/workflows/lint.yml)
-
 # Sanity / Next
 
 ## Quick start

@@ -19,7 +19,7 @@
     "@portabletext/react": "^3.0.11",
     "@sanity/webhook": "^4.0.0",
     "@tanstack/react-query": "^5.14.2",
-    "@tanstack/react-query-next-experimental": "^5.14.1",
+    "@tanstack/react-query-next-experimental": "^5.14.2",
     "@vercel/analytics": "^1.1.1",
     "@vercel/kv": "^1.0.1",
     "algoliasearch": "^4.22.0",
