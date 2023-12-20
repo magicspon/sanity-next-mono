@@ -4,10 +4,10 @@ import { meta, openGraph } from '../fields/seo'
 import { pageTreeConfig } from '../../page-tree-config'
 import { definePageType } from '@q42/sanity-plugin-page-tree'
 
-const _page = defineType({
-  name: 'page',
+const _product = defineType({
+  name: 'product',
   type: 'document',
-  title: 'Page',
+  title: 'Product',
   groups: [{ name: 'seo' }],
   fields: [
     titleField(),
@@ -17,6 +17,6 @@ const _page = defineType({
   ],
 })
 
-export const page = definePageType(_page, pageTreeConfig, {
+export const product = definePageType(_product, pageTreeConfig, {
   isRoot: false,
 })
