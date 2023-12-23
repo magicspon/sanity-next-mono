@@ -1,6 +1,6 @@
 import { defineType } from 'sanity'
 import { titleField } from '../fields/core'
-import { meta, openGraph } from '../fields/seo'
+import { openGraph } from '../fields/seo'
 import { pageTreeConfig } from '../../page-tree-config'
 import { definePageType } from '@q42/sanity-plugin-page-tree'
 import { cardField } from '../fields/card'
@@ -28,7 +28,6 @@ const _page = defineType({
     heroField({ group: 'page' }),
     block({ group: 'page' }),
     openGraph({ group: 'seo' }),
-    meta({ group: 'seo' }),
   ],
 })
 

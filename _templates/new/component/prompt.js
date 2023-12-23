@@ -48,7 +48,7 @@ module.exports = {
       message: 'Do you want to include a story:',
     })
 
-    const basePath = `${directory}/${package}/src`
+    const basePath = `${directory}/${package}/app`
     const path = isUi ? `${basePath}${dir}` : `${basePath}/components`
 
     return {

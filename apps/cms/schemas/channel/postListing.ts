@@ -1,5 +1,5 @@
 import { defineType } from 'sanity'
-import { meta, openGraph } from '../fields/seo'
+import { openGraph } from '../fields/seo'
 import { heroField } from '../fields/hero'
 
 export const postListing = defineType({
@@ -11,11 +11,7 @@ export const postListing = defineType({
     { name: 'teaser' },
     { name: 'seo' },
   ],
-  fields: [
-    heroField({ group: 'hero' }),
-    openGraph({ group: 'seo' }),
-    meta({ group: 'seo' }),
-  ],
+  fields: [heroField({ group: 'hero' }), openGraph({ group: 'seo' })],
   preview: {
     select: {
       title: 'hero.heading',

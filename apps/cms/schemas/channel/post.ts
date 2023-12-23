@@ -1,6 +1,6 @@
 import { defineType } from 'sanity'
 import { titleField } from '../fields/core'
-import { meta, openGraph } from '../fields/seo'
+import { openGraph } from '../fields/seo'
 import { block } from '../fields/block'
 import { cardField } from '../fields/card'
 
@@ -18,6 +18,5 @@ export const post = defineType({
     }),
     block({ group: 'post' }),
     openGraph({ group: 'seo' }),
-    meta({ group: 'seo' }),
   ],
 })

@@ -59,19 +59,12 @@ const linksSelection = {
 
 export type PortableLinks = TypeFromSelection<typeof linksSelection>
 
-const body = q('body')
-  .filter()
-  .select({
-    "_type == 'Content'": contentBlockSelection,
-    "_type == 'image'": {
-      _type: q.literal('image'),
-      ...imageSelection,
-    },
-    "_type == 'links'": linksSelection,
-    "_type == 'blocks'": blocks,
-
-    "_type == 'images'": images,
-  })
+const body = q('body').filter().select({
+  "_type == 'Content'": contentBlockSelection,
+  "_type == 'links'": linksSelection,
+  "_type == 'blocks'": blocks,
+  "_type == 'images'": images,
+})
 
 export type Body = InferType<typeof body>
 
@@ -79,7 +72,6 @@ export const pageDocument = {
   title: q.string(),
   hero: heroFragment.nullable(),
   ...metaFragment,
-
   body,
 } satisfies Selection
 

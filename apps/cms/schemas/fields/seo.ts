@@ -13,9 +13,16 @@ export const openGraph = (
       defineField({
         type: 'string',
         title: 'Page Title',
-        name: 'ogTitle',
+        name: 'title',
         description:
           'Set the title Open Graph should use. In most situations, this should be different from the value of the title prop',
+        validation: (Rule) => Rule.required(),
+      }),
+      defineField({
+        type: 'text',
+        name: 'description',
+        title: 'Describe This',
+        rows: 2,
         validation: (Rule) => Rule.required(),
       }),
       defineField({
