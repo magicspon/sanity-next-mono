@@ -5,7 +5,6 @@ import { getAllPageMetadata } from 'cms/queries/tree'
 
 async function getData() {
   const data = await runQuery(homeQuery, {}, { next: { tags: ['home'] } })
-
   const allPagesMetadata = await getAllPageMetadata()
   console.log({ allPagesMetadata })
 

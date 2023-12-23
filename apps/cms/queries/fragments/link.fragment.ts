@@ -1,19 +1,75 @@
-import { q, TypeFromSelection, type Selection } from 'groqd'
+import { q, InferType } from 'groqd'
 
 export const link = {
-  _type: q.literal('link').optional(),
-  _key: q.string().optional(),
-  text: q.string().optional(),
-  url: q.string().optional(),
-  custom: q.string().optional(),
-  variant: q.string().default('default'),
-  href: q('href')
-    .deref()
-    .grab$({
-      _type: q.string(),
-      slug: q.slug('slug'),
-    })
-    .nullable(),
-} satisfies Selection
+  "type == 'external'": {
+    type: q.literal('external'),
+    _type: q.literal('link'),
+    _key: q.string().optional(),
+    text: q.string(),
+    href: q('url'),
+    variant: q.string(),
+  },
+  "type == 'custom'": {
+    type: q.literal('custom'),
+    _type: q.literal('link'),
+    _key: q.string().optional(),
+    text: q.string(),
+    href: q('custom'),
+    variant: q.string(),
+  },
+  "type == 'internal'": {
+    type: q.literal('internal'),
+    _type: q.literal('link'),
+    _key: q.string().optional(),
+    text: q.string(),
+    href: q('href')
+      .deref()
+      .select({
+        "parent != 'null'": {
+          slug: q.slug('slug'),
+          parent: q('parent')
+            .deref()
+            .select({
+              "parent != 'null'": {
+                slug: q.slug('slug'),
+                parent: q('parent')
+                  .deref()
+                  .select({
+                    "parent != 'null'": {
+                      slug: q.slug('slug'),
+                    },
+                    default: {
+                      slug: q.slug('slug'),
+                    },
+                  }),
+              },
+              default: {
+                slug: q.slug('slug'),
+              },
+            }),
+        },
+        default: {
+          slug: q.slug('slug'),
+        },
+      }),
+    variant: q.string(),
+  },
+  "type == 'email'": {
+    type: q.literal('email'),
+    _type: q.literal('link'),
+    _key: q.string().optional(),
+    text: q.string(),
+    href: q('@').grabOne(
+      'email',
+      q.string().transform((s) => `mailto:${s}`),
+    ),
+    variant: q.string(),
+  },
+}
 
-export type LinkSchema = TypeFromSelection<typeof link>
+export const links = q('links').grab$({
+  layout: q.string().optional().default('inline'),
+  links: q('links').filter().select(link),
+})
+
+export type LinkSchema = InferType<typeof links>

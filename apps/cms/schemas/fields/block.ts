@@ -5,13 +5,14 @@ import {
   defineField,
 } from 'sanity'
 import { image } from './image'
-import { linkField } from './link'
+import { linkField, linksArrayField } from './link'
+import { cardField } from './card'
 
 export const block = (
   arg: Partial<ArrayDefinition> & Partial<FieldDefinitionBase> = {},
 ) =>
   defineField({
-    name: 'block',
+    name: 'body',
     type: 'array',
     title: 'Block',
     validation: (rule) => rule.required(),
@@ -20,52 +21,198 @@ export const block = (
         type: 'block',
         name: 'Content',
         marks: {
-          annotations: [
-            {
-              name: 'link',
-              type: 'object',
-              title: 'Link',
-              fields: [
-                defineField({
-                  name: 'url',
-                  title: 'External link',
-                  type: 'url',
-                  hidden: ({ parent, value }) => !value && !!parent?.href,
-                }),
-                defineField({
-                  name: 'href',
-                  title: 'Internal link',
-                  type: 'reference',
-                  to: [{ type: 'project' } as const],
-                  hidden: ({ parent, value }) => !value && !!parent?.url,
-                }),
-              ],
-            },
-          ],
+          annotations: [linkField()],
         },
       }),
-      defineArrayMember(image()),
-      defineArrayMember(linkField()),
       defineArrayMember({
-        name: 'linksGroup',
+        name: 'images',
+        title: 'Image',
         type: 'object',
-        title: 'Group of links',
+        groups: [{ name: 'image' }, { name: 'layout' }],
         fields: [
           defineField({
+            group: 'image',
+            name: 'images',
+            title: 'Image(s)',
             type: 'array',
-            name: 'links',
-            of: [defineArrayMember(linkField())],
+            of: [defineArrayMember(image())],
+            validation: (Rule) => Rule.required(),
+          }),
+          defineField({
+            group: 'layout',
+            type: 'string',
+            name: 'layout',
+            initialValue: 'stack',
+            options: {
+              list: [
+                { value: 'grid', title: 'Grid' },
+                { value: 'inline', title: 'Inline' },
+                { value: 'stack', title: 'Stack' },
+              ],
+              layout: 'radio',
+              direction: 'horizontal',
+            },
+            hidden: ({ parent }) => {
+              return !(parent?.images?.length > 1)
+            },
           }),
         ],
         preview: {
           select: {
-            links: 'links',
+            alt: 'images.0.alt',
+            images: 'images.0.asset',
           },
-          prepare({ links }) {
-            const items = links as { text: string }[]
+          prepare: ({ alt, images }) => {
+            console.log({ images })
             return {
-              title: 'Links',
-              description: items.map((l) => l.text).join(', '),
+              title: `Image(s): ${alt}`,
+              media: images,
+            }
+          },
+        },
+      }),
+      defineArrayMember(linksArrayField()),
+      defineArrayMember({
+        type: 'object',
+        name: 'blocks',
+        fields: [
+          defineField({
+            name: 'cards',
+            type: 'array',
+            of: [defineArrayMember(cardField())],
+          }),
+          defineField({
+            name: 'variant',
+            title: 'Variant',
+            type: 'string',
+            initialValue: 'default',
+            options: {
+              layout: 'radio',
+              direction: 'horizontal',
+              list: [
+                { value: 'default', title: 'default' },
+                { value: 'secondary', title: 'secondary' },
+                { value: 'outline', title: 'outline' },
+                { value: 'ghost', title: 'ghost' },
+              ],
+            },
+
+            hidden: ({ parent }) => {
+              return !parent?.cards?.length
+            },
+          }),
+          defineField({
+            name: 'layout',
+            title: 'Layout',
+            type: 'string',
+            initialValue: 'stack',
+            options: {
+              layout: 'radio',
+              direction: 'horizontal',
+              list: [
+                { value: 'stack', title: 'stack' },
+                { value: 'inline', title: 'inline' },
+                { value: 'grid', title: 'grid' },
+              ],
+            },
+            hidden: ({ parent }) => {
+              return !parent?.cards?.length
+            },
+          }),
+        ],
+        preview: {
+          select: {
+            t1: 'cards.0.title',
+            t2: 'cards.1.title',
+            t3: 'cards.2.title',
+            t4: 'cards.3.title',
+            layout: 'layout',
+            variant: 'variant',
+          },
+          prepare: ({ t1, t2, t3, t4, layout, variant }) => {
+            const title = [t1, t2, t3, t4].filter(Boolean).join(', ')
+            return {
+              title: `Blocks: ${title}`,
+              subtitle: `Layout: ${layout}, Variant: ${variant}`,
+            }
+          },
+        },
+      }),
+      defineArrayMember({
+        name: 'banner',
+        title: 'Banner',
+        type: 'reference',
+        to: [{ type: 'banner' }],
+      }),
+
+      defineArrayMember({
+        type: 'object',
+        name: 'related',
+        fields: [
+          defineField({
+            name: 'cards',
+            type: 'array',
+            of: [
+              defineArrayMember({
+                name: 'entry',
+                type: 'reference',
+                to: [{ type: 'page' }, { type: 'post' }],
+              }),
+            ],
+          }),
+          defineField({
+            name: 'variant',
+            title: 'Variant',
+            type: 'string',
+            initialValue: 'default',
+            options: {
+              layout: 'radio',
+              direction: 'horizontal',
+              list: [
+                { value: 'default', title: 'default' },
+                { value: 'secondary', title: 'secondary' },
+                { value: 'outline', title: 'outline' },
+                { value: 'ghost', title: 'ghost' },
+              ],
+            },
+
+            hidden: ({ parent }) => {
+              return !parent?.cards?.length
+            },
+          }),
+          defineField({
+            name: 'layout',
+            title: 'Layout',
+            type: 'string',
+            initialValue: 'stack',
+            options: {
+              layout: 'radio',
+              direction: 'horizontal',
+              list: [
+                { value: 'stack', title: 'stack' },
+                { value: 'inline', title: 'inline' },
+                { value: 'grid', title: 'grid' },
+              ],
+            },
+            hidden: ({ parent }) => {
+              return !parent?.cards?.length
+            },
+          }),
+        ],
+        preview: {
+          select: {
+            t1: 'cards.0.title',
+            t2: 'cards.1.title',
+            t3: 'cards.2.title',
+            t4: 'cards.3.title',
+            layout: 'layout',
+            variant: 'variant',
+          },
+          prepare: ({ t1, t2, t3, t4, layout, variant }) => {
+            const title = [t1, t2, t3, t4].filter(Boolean).join(', ')
+            return {
+              title: `Blocks: ${title}`,
+              subtitle: `Layout: ${layout}, Variant: ${variant}`,
             }
           },
         },
@@ -74,11 +221,11 @@ export const block = (
     ...arg,
   })
 
-export const teaser = (
+export const richText = (
   arg: Partial<ArrayDefinition> & Partial<FieldDefinitionBase> = {},
 ) =>
   defineField({
-    name: 'teaser',
+    name: 'richText',
     type: 'array',
     title: 'Teaser',
     validation: (rule) => rule.required(),
@@ -87,39 +234,10 @@ export const teaser = (
         type: 'block',
         name: 'Content',
         marks: {
-          annotations: [
-            {
-              name: 'link',
-              type: 'object',
-              title: 'Link',
-              fields: [
-                defineField({
-                  name: 'url',
-                  title: 'External link',
-                  type: 'url',
-                  hidden: ({ parent, value }) =>
-                    !value && (!!parent?.href || !!parent?.custom),
-                }),
-                defineField({
-                  name: 'href',
-                  title: 'Internal link',
-                  type: 'reference',
-                  to: [{ type: 'project' } as const],
-                  hidden: ({ parent, value }) =>
-                    !value && (!!parent?.url || !!parent?.custom),
-                }),
-                defineField({
-                  name: 'custom',
-                  title: 'Custom link',
-                  type: 'string',
-                  hidden: ({ parent, value }) =>
-                    !value && (!!parent?.href || !!parent?.url),
-                }),
-              ],
-            },
-          ],
+          annotations: [linkField()],
         },
       }),
+      linksArrayField(),
     ],
     ...arg,
   })

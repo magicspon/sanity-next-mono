@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:magicspon/next-sanity-mono.git"
+    "url": "ssh://git@github.com:magicspon/sanity-next-mono.git"
   },
   "license": "MIT",
   "packageManager": "yarn@1.22.17",

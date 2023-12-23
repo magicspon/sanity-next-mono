@@ -1,4 +1,5 @@
 import { q, type Selection, TypeFromSelection } from 'groqd'
+import { link } from './link.fragment'
 
 export const contentBlockSelection = {
   _type: q.string(),
@@ -11,23 +12,7 @@ export const contentBlockSelection = {
       marks: q.array(q.string()),
     }),
   ),
-  markDefs: q('markDefs')
-    .filter()
-    .select({
-      '_type == "link"': {
-        _key: q.string(),
-        _type: q.string(),
-        url: q.string().nullable(),
-        href: q('href')
-          .deref()
-          .grab$({
-            _type: q.string(),
-            slug: q.slug('slug'),
-          })
-          .nullable(),
-      },
-    })
-    .nullable(),
+  markDefs: q('markDefs').filter('_type == "link"').select(link).nullable(),
   style: q.string().nullish(),
   listItem: q.string().nullish(),
   level: q.number().nullish(),

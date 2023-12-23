@@ -15,9 +15,14 @@ import { home } from './schemas/channel/home'
 import { page } from './schemas/channel/page'
 import { createPageTreeDocumentList } from '@q42/sanity-plugin-page-tree'
 import { pageTreeConfig } from './page-tree-config'
-import { product } from './schemas/channel/product'
+import { post } from './schemas/channel/post'
 import { settings } from './schemas/channel/settings'
 import { SchemaIcon } from '@sanity/icons'
+import { postCategory } from './schemas/categories/post-categories'
+import { author } from './schemas/channel/author'
+import { banner } from './schemas/modules/banner'
+import { listing } from './schemas/channel/listing'
+import { postListing } from './schemas/channel/postListing'
 
 const singles = [settings]
 
@@ -66,15 +71,38 @@ const config = defineConfig({
                       .apiVersion(pageTreeConfig.apiVersion),
                 }),
               ),
+
+            S.listItem()
+              .title('Blog')
+              .child(
+                S.list()
+                  .title('Blog')
+                  .items([
+                    makeSingle(postListing),
+                    S.documentTypeListItem(post.name).title(post.title!),
+                    S.documentTypeListItem(postCategory.name).title(
+                      postCategory.title!,
+                    ),
+                    S.documentTypeListItem(author.name).title(author.title!),
+                  ]),
+              ),
+            S.divider(),
+
+            S.listItem()
+              .title('Modules')
+              .child(
+                S.list()
+                  .title('Shared content')
+                  .items([
+                    S.documentTypeListItem(banner.name).title(banner.title!),
+                  ]),
+              ),
+            S.divider(),
           ])
       },
     }),
     workflow({
-      // Required, list of document type names
-      // schemaTypes: ['article', 'product'],
       schemaTypes: ['page'],
-      // Optional, see below
-      // states: [],
     }),
     media(),
     webhooks(),
@@ -83,7 +111,17 @@ const config = defineConfig({
   ],
 
   schema: {
-    types: [settings, home, page, product],
+    types: [
+      settings,
+      home,
+      page,
+      postListing,
+      post,
+      author,
+      listing,
+      banner,
+      postCategory,
+    ],
   },
 })
 

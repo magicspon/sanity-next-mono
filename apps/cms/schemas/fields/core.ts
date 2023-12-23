@@ -7,7 +7,9 @@ import {
 } from 'sanity'
 import slugify from 'utils/slugify'
 
-export const titleField = (arg: Partial<StringDefinition> = {}) =>
+export const titleField = (
+  arg: Partial<StringDefinition> & Partial<FieldDefinitionBase> = {},
+) =>
   defineField({
     name: 'title',
     type: 'string',
@@ -16,7 +18,9 @@ export const titleField = (arg: Partial<StringDefinition> = {}) =>
     ...arg,
   })
 
-export const stringField = (arg: Partial<StringDefinition> = {}) =>
+export const stringField = (
+  arg: Partial<StringDefinition> & Partial<FieldDefinitionBase> = {},
+) =>
   defineField({
     name: 'text',
     type: 'string',
@@ -24,7 +28,9 @@ export const stringField = (arg: Partial<StringDefinition> = {}) =>
     ...arg,
   })
 
-export const slugField = (arg: Partial<SlugDefinition> = {}) => {
+export const slugField = (
+  arg: Partial<SlugDefinition> & Partial<FieldDefinitionBase> = {},
+) => {
   const { options, ...rest } = arg
 
   return defineField({
@@ -40,7 +46,9 @@ export const slugField = (arg: Partial<SlugDefinition> = {}) => {
   })
 }
 
-export const plainText = (arg: Partial<TextDefinition> = {}) =>
+export const plainText = (
+  arg: Partial<TextDefinition> & Partial<FieldDefinitionBase> = {},
+) =>
   defineField({
     name: 'description',
     title: 'Description',

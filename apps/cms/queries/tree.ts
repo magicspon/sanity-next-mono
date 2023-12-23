@@ -12,7 +12,12 @@ export const pageTreeClient = createNextPageTreeClient({
 export const getAllPageMetadata = async () =>
   (await pageTreeClient.getAllPageMetadata()) as {
     path: string
-    type: string
+    type: 'page' | 'product'
     _id: string
     __updatedAt: string
   }[]
+
+export const getPageMetaData = async (path: string) => {
+  const data = await getAllPageMetadata()
+  return data.find((d) => d.path === path)
+}
