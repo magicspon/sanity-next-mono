@@ -3,12 +3,10 @@ type TLinkRef = {
   parent?: TLinkRef
 }
 
-export function unwrapLinkTree(link: TLinkRef, items: string[] = []) {
+export function unwrapLinkTree(link: TLinkRef, slugs: string[] = []) {
+  slugs.push(link.slug)
   if (link.parent) {
-    items.push(link.slug)
-    return unwrapLinkTree(link.parent, items)
-  } else {
-    items.push(link.slug)
+    return unwrapLinkTree(link.parent, slugs)
   }
-  return `/${items.reverse().join('/')}`
+  return `/${slugs.reverse().join('/')}`
 }
