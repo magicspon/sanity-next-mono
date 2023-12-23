@@ -8,7 +8,6 @@ export const metaFragment = {
       image: q('image')
         .grab({
           _type: q.literal('image'),
-
           ...metaImageSelection,
         })
         .nullable(),

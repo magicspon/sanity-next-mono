@@ -39,7 +39,12 @@ export default async function Home({ params }: Props) {
   const { page, type } = await getData({ params })
 
   if (type === 'page') {
-    return <>{page?.body && <Block block={page.body} />}</>
+    return (
+      <>
+        {/* <pre>{JSON.stringify(page, null, 2)}</pre> */}
+        {page?.body && <Block block={page.body} />}
+      </>
+    )
   }
 
   return (

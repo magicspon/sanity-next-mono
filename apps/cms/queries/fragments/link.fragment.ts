@@ -69,7 +69,7 @@ export const link = {
 
 export const links = q('links').grab$({
   layout: q.string().optional().default('inline'),
-  links: q('links').filter().select(link),
+  links: q('links').filter().select(link).nullable(),
 })
 
 export type LinkSchema = InferType<typeof links>

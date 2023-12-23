@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { PortableText, PortableTextProps } from '@portabletext/react'
+import { PortableText, type PortableTextProps } from '@portabletext/react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { imageProps } from '~utils/imageProps'
-import { PageDocument } from 'cms/queries/selection/page.selection'
-import { LinkSchema } from 'cms/queries/fragments/link.fragment'
+import type { PageDocument } from 'cms/queries/selection/page.selection'
 import { Links } from '~components/Block/types/Links'
 import { Link } from './marks/Link'
+import { Blocks } from './types/Blocks'
+import { Images } from './types/Images'
 
 export interface TProseProps {
   block: PageDocument['body']
@@ -24,16 +25,18 @@ export function Block({ block, className }: TProseProps) {
               return <Image {...imageProps(value)} />
             },
             links: ({ value }) => {
-              const typedValue = value as LinkSchema
-              return (
-                <Links links={typedValue.links} layout={typedValue.layout} />
-              )
+              return <Links links={value.links} layout={value.layout} />
+            },
+            blocks: ({ value }) => {
+              return <Blocks {...value} />
+            },
+            images: ({ value }) => {
+              return <Images {...value} />
             },
           },
           marks: {
             link: ({ children, value }) => {
-              const typedValud = value as LinkSchema['links'][number]
-              return <Link link={typedValud}>{children}</Link>
+              return <Link link={value}>{children}</Link>
             },
           },
         }}
