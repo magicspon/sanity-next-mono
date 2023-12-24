@@ -13,17 +13,17 @@ type Props = {
   }
 }
 
+type PageProps = { type: 'page'; page: PageQuery['page'][number] }
+type ListingProps = {
+  type: 'listing'
+  page: ListingQuery['page'][number]
+  pages: ListingQuery['pages']
+}
+
 async function getData({ params }: Props) {
   const pageMeta = await getPageMetaData(`/${params.page.join('/')}`)
   if (!pageMeta) notFound()
   const { _id, type } = pageMeta
-
-  // keep this here for typescripts happiness
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const queries = {
-    page: pageQuery,
-    listing: listingQuery, // change
-  }
 
   const args = {
     page: { id: _id },
@@ -38,19 +38,14 @@ async function getData({ params }: Props) {
   const page = getFirstOrNull(data.page)
 
   if (type === 'listing') {
-    const d = data as ListingQuery
     return {
       type,
       page,
-      pages: d.pages,
-    } as {
-      type: 'listing'
-      page: ListingQuery['page'][number]
-      pages: ListingQuery['pages']
-    }
+      pages: (data as ListingQuery).pages,
+    } as ListingProps
   }
 
-  return { page, type } as { type: 'page'; page: PageQuery['page'][number] }
+  return { page, type } as PageProps
 }
 
 export default async function Page({ params }: Props) {
@@ -58,12 +53,7 @@ export default async function Page({ params }: Props) {
 
   if (data.type === 'page') {
     const { page } = data
-    return (
-      <>
-        {/* <pre>{JSON.stringify(page, null, 2)}</pre> */}
-        {page?.body && <Block block={page.body} />}
-      </>
-    )
+    return <>{page?.body && <Block block={page.body} />}</>
   }
 
   const { page, pages } = data
