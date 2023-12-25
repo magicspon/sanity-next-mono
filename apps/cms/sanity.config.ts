@@ -23,6 +23,8 @@ import { author } from './schemas/channel/author'
 import { banner } from './schemas/modules/banner'
 import { listing } from './schemas/channel/listing'
 import { postListing } from './schemas/channel/postListing'
+import { SanityDocument } from 'next-sanity'
+import { Iframe } from 'sanity-plugin-iframe-pane'
 
 const singles = [settings]
 
@@ -99,6 +101,35 @@ const config = defineConfig({
               ),
             S.divider(),
           ])
+      },
+      defaultDocumentNode: (S, { schemaType }) => {
+        switch (schemaType) {
+          case `page`:
+          case `home`: {
+            return S.document().views([
+              S.view.form(),
+              S.view
+                .component(Iframe)
+                .options({
+                  url: {
+                    origin: 'same-origin', // or 'same-origin' if the app and studio are on the same origin
+                    preview: (document: SanityDocument) => {
+                      return document?._type === 'home'
+                        ? '/'
+                        : document?.slug?.current
+                          ? `/`
+                          : new Error('Missing slug')
+                    },
+                    draftMode: '/api/draft', // the route you enable draft mode, see: https://github.com/sanity-io/visual-editing/tree/main/packages/preview-url-secret#sanitypreview-url-secret
+                  },
+                })
+                .title('Preview'),
+            ])
+          }
+          default: {
+            return S.document().views([S.view.form()])
+          }
+        }
       },
     }),
     workflow({

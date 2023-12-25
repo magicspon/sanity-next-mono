@@ -1,22 +1,20 @@
-import { runQuery } from 'cms/lib/runner'
 import { homeQuery } from 'cms/queries/pages/home.query'
 import * as React from 'react'
-import { getAllPageMetadata } from 'cms/queries/tree'
+import { LiveQuery } from 'next-sanity/preview/live-query'
+import { draftMode } from 'next/headers'
+import { HomePage, HomePagePreview, getData } from '~pages/HomePage'
 
-async function getData() {
-  const data = await runQuery(homeQuery, {}, { next: { tags: ['home'] } })
-  const allPagesMetadata = await getAllPageMetadata()
-  console.log({ allPagesMetadata })
-
-  return data
-}
-
-export default async function Home() {
-  const data = await getData()
+export default async function Index() {
+  const { data } = await getData()
 
   return (
-    <>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </>
+    <LiveQuery
+      enabled={draftMode().isEnabled}
+      query={homeQuery.query}
+      initialData={data}
+      as={HomePagePreview}
+    >
+      <HomePage data={data} />
+    </LiveQuery>
   )
 }
