@@ -1,4 +1,5 @@
 import { homeQuery } from 'cms/queries/pages/home.query'
+// import { getAllPageMetadata } from 'cms/queries/tree'
 import { createSanityFetcher } from '~utils/createSanityFetcher'
 
 export async function getData() {

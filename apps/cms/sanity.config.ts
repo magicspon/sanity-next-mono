@@ -14,6 +14,7 @@ import { PROJECT_ID } from './lib/env'
 import { home } from './schemas/channel/home'
 import { page } from './schemas/channel/page'
 import { createPageTreeDocumentList } from '@q42/sanity-plugin-page-tree'
+import { pageTreeClient } from './queries/tree'
 import { pageTreeConfig } from './page-tree-config'
 import { post } from './schemas/channel/post'
 import { settings } from './schemas/channel/settings'
@@ -113,12 +114,15 @@ const config = defineConfig({
                 .options({
                   url: {
                     origin: 'same-origin', // or 'same-origin' if the app and studio are on the same origin
-                    preview: (document: SanityDocument) => {
-                      return document?._type === 'home'
-                        ? '/'
-                        : document?.slug?.current
-                          ? `/`
-                          : new Error('Missing slug')
+                    preview: async (document: SanityDocument) => {
+                      if (document?._type === 'home') return '/'
+                      const entry = await pageTreeClient.getPageMetadataById(
+                        document._id,
+                      )
+
+                      console.log({ entry })
+
+                      return document.slug.current ?? new Error('Missing slug')
                     },
                     draftMode: '/api/draft', // the route you enable draft mode, see: https://github.com/sanity-io/visual-editing/tree/main/packages/preview-url-secret#sanitypreview-url-secret
                   },
