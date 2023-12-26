@@ -1,5 +1,5 @@
 import { defineType } from 'sanity'
-import { plainText, titleField } from '../fields/core'
+import { plainText, slugField, titleField } from '../fields/core'
 import { openGraph } from '../fields/seo'
 
 export const postCategory = defineType({
@@ -7,5 +7,5 @@ export const postCategory = defineType({
   type: 'document',
   title: 'Categories',
   groups: [{ name: 'seo' }],
-  fields: [titleField(), plainText(), openGraph({ group: 'seo' })],
+  fields: [titleField(), slugField(), plainText(), openGraph({ group: 'seo' })],
 })

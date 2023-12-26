@@ -104,8 +104,11 @@ const config = defineConfig({
           ])
       },
       defaultDocumentNode: (S, { schemaType }) => {
+        console.log({ schemaType })
         switch (schemaType) {
           case `page`:
+          case `postCategory`:
+          case `post`:
           case `home`: {
             return S.document().views([
               S.view.form(),
@@ -116,6 +119,10 @@ const config = defineConfig({
                     origin: 'same-origin', // or 'same-origin' if the app and studio are on the same origin
                     preview: async (document: SanityDocument) => {
                       if (document?._type === 'home') return '/'
+                      if (document?._type === 'postCategory')
+                        return `/blog/${document.slug.current}`
+                      if (document?._type === 'post')
+                        return `/blog/post/${document.slug.current}`
                       const entry = await pageTreeClient.getPageMetadataById(
                         document._id,
                       )

@@ -1,7 +1,6 @@
 import { ObjectDefinition, FieldDefinitionBase, defineField } from 'sanity'
 import { image } from './image'
 import { richText } from './block'
-import { linksArrayField } from './link'
 import { titleField } from './core'
 
 export const cardField = (
@@ -19,7 +18,6 @@ export const cardField = (
       titleField({ group: 'content' }),
       image({ group: 'image' }),
       richText({ name: 'body', title: 'Body', group: 'content' }),
-      linksArrayField({ group: 'links' }),
     ],
     ...arg,
   })
