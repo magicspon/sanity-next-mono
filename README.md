@@ -45,4 +45,4 @@ packages
 
 ### Sanity
 
-Includes live preview, singletons, nested documents (https://github.com/Q42/sanity-plugin-page-tree)[Sanity page tree]
+Includes live preview, singletons, nested documents (via Sanity page tree)[https://github.com/Q42/sanity-plugin-page-tree]
