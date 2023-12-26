@@ -9,6 +9,7 @@ yarn dev
 
 ## Features
 
+- Sanity
 - Typescript
 - Tailwind
 - Nextjs
@@ -41,3 +42,7 @@ packages
  └─ utils
      └─ utility functions
 ```
+
+### Sanity
+
+Includes live preview, singletons, nested documents (https://github.com/Q42/sanity-plugin-page-tree)[Sanity page tree]
