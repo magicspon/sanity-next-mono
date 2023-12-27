@@ -18,6 +18,7 @@ import { pageTreeClient } from './queries/tree'
 import { pageTreeConfig } from './page-tree-config'
 import { post } from './schemas/channel/post'
 import { settings } from './schemas/channel/settings'
+import { mainMenu } from './schemas/channel/mainMenu'
 import { SchemaIcon } from '@sanity/icons'
 import { postCategory } from './schemas/categories/post-categories'
 import { author } from './schemas/channel/author'
@@ -26,8 +27,9 @@ import { listing } from './schemas/channel/listing'
 import { postListing } from './schemas/channel/postListing'
 import { SanityDocument } from 'next-sanity'
 import { Iframe } from 'sanity-plugin-iframe-pane'
+import { inlineSvgInput } from '@focus-reactive/sanity-plugin-inline-svg-input'
 
-const singles = [settings]
+const singles = [settings, mainMenu]
 
 const config = defineConfig({
   basePath: '/studio',
@@ -54,11 +56,11 @@ const config = defineConfig({
           .title('Content')
           .items([
             S.listItem()
-              .title('Singles')
+              .title('Globals')
               .icon(SchemaIcon)
               .child(
                 S.list()
-                  .title('Pages')
+                  .title('Content')
                   .items([...singles.map(makeSingle)]),
               ),
             S.divider(),
@@ -104,7 +106,6 @@ const config = defineConfig({
           ])
       },
       defaultDocumentNode: (S, { schemaType }) => {
-        console.log({ schemaType })
         switch (schemaType) {
           case `page`:
           case `postCategory`:
@@ -150,6 +151,7 @@ const config = defineConfig({
     webhooks(),
     groqdPlaygroundTool(),
     unsplashImageAsset(),
+    inlineSvgInput(),
   ],
 
   schema: {
@@ -163,6 +165,7 @@ const config = defineConfig({
       listing,
       banner,
       postCategory,
+      mainMenu,
     ],
   },
 })

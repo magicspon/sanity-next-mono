@@ -10,6 +10,7 @@
     "deploy-graphql": "sanity graphql deploy"
   },
   "dependencies": {
+    "@focus-reactive/sanity-plugin-inline-svg-input": "^1.0.1",
     "@mobily/ts-belt": "^3.13.1",
     "@portabletext/react": "^3.0.11",
     "@q42/sanity-plugin-page-tree": "^1.0.4",

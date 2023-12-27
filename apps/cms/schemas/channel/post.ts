@@ -18,6 +18,12 @@ export const post = defineType({
       type: 'reference',
       to: [{ type: 'postCategory' }],
     }),
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{ type: 'author' }],
+    }),
     cardField({
       name: 'teaser',
       title: 'Teaser',

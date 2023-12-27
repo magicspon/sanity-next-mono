@@ -1856,6 +1856,14 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.6.tgz#22958c042e10b67463997bd6ea7115fe28cbcaf9"
   integrity sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==
 
+"@focus-reactive/sanity-plugin-inline-svg-input@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@focus-reactive/sanity-plugin-inline-svg-input/-/sanity-plugin-inline-svg-input-1.0.1.tgz#f6fd54e20194803d4197f9247ac46eebbc450584"
+  integrity sha512-xg2jfLqwOSms6DJcxloxPRNEElZ1c0ExxQuKOBH68okPtlbWabao90AFfSUOzjPGkoyKBSJj76QTe8Zl59YMmg==
+  dependencies:
+    "@sanity/incompatible-plugin" "^1.0.4"
+    dompurify "^3.0.6"
+
 "@hello-pangea/dnd@^16.2.0":
   version "16.5.0"
   resolved "https://registry.yarnpkg.com/@hello-pangea/dnd/-/dnd-16.5.0.tgz#f323ff9f813204818bc67648a383e8715f47c59c"
@@ -7166,6 +7174,11 @@ domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.3.1:
   integrity sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ==
   dependencies:
     domelementtype "^2.2.0"
+
+dompurify@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-3.0.6.tgz#925ebd576d54a9531b5d76f0a5bef32548351dae"
+  integrity sha512-ilkD8YEnnGh1zJ240uJsW7AzE+2qpbOUYjacomn3AvJ6J4JhKGSZ2nh4wUIXPZrEPppaCLx5jFe8T89Rk8tQ7w==
 
 domutils@^2.5.2, domutils@^2.8.0:
   version "2.8.0"
