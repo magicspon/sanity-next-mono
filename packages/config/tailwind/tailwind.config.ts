@@ -84,26 +84,14 @@ const config = {
         inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
         none: 'none',
       },
-      colors: {
-        copy: '#525151',
-        pale: '#FEECF3',
-        pink: '#FFAEE8',
-        peach: '#FA8484',
-        grass: '#BFDDBE',
-        positive: '#13b888',
-        negative: '#ff3fd3',
-        sea: '#3F52E7',
-        sky: '#b0e2fe',
-      },
       containers: {
         '4xs': '10rem',
         '3xs': '12rem',
         '2xs': '16rem',
       },
       fontFamily: {
-        sans: ['var(--font-athletics)', ...fontFamily.sans],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
       },
-
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
         sm: ['0.875rem', { lineHeight: '1.25rem' }],

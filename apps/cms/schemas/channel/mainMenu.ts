@@ -53,11 +53,12 @@ export const mainMenu = defineType({
                       children: 'children',
                     },
                     prepare: ({ title, children }) => {
+                      const links = children
+                        ? children.map((c: any) => c.link.text).join(', ')
+                        : ' '
                       return {
                         title,
-                        subtitle: children
-                          ? `Child nodes: ${children?.length}`
-                          : ' ',
+                        subtitle: children ? `Children: ${links}` : ' ',
                       }
                     },
                   },
@@ -71,9 +72,12 @@ export const mainMenu = defineType({
               children: 'children',
             },
             prepare: ({ title, children }) => {
+              const links = children
+                ? children.map((c: any) => c.link.text).join(', ')
+                : ' '
               return {
                 title,
-                subtitle: children ? `Child nodes: ${children?.length}` : ' ',
+                subtitle: children ? `Children: ${links}` : ' ',
               }
             },
           },

@@ -1,4 +1,4 @@
-import { PortableBlocks } from 'cms/queries/selection/page.selection'
+import { PortableBlocks } from 'cms/queries/fragments/portable.fragment'
 import * as React from 'react'
 
 export interface TBlocksProps {}

@@ -1,5 +1,5 @@
 import { q, type Selection, TypeFromSelection } from 'groqd'
-import { link } from './link.fragment'
+import { richText } from './link.fragment'
 
 export const contentBlockSelection = {
   _type: q.string(),
@@ -12,7 +12,7 @@ export const contentBlockSelection = {
       marks: q.array(q.string()),
     }),
   ),
-  markDefs: q('markDefs').filter('_type == "link"').select(link).nullable(),
+  markDefs: q('markDefs').filter('_type == "link"').select(richText).nullable(),
   style: q.string().nullish(),
   listItem: q.string().nullish(),
   level: q.number().nullish(),

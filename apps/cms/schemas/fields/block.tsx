@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {
   ArrayDefinition,
   FieldDefinitionBase,
@@ -5,8 +6,17 @@ import {
   defineField,
 } from 'sanity'
 import { image } from './image'
-import { linkField, linksArrayField } from './link'
+import { linksArrayField, richTextLink } from './link'
 import { cardField } from './card'
+
+const HighlightIcon = () => <span style={{ fontWeight: 'bold' }}>H</span>
+const HighlightDecorator = ({ children }: { children: React.ReactNode }) => (
+  <span style={{ backgroundColor: 'yellow' }}>{children}</span>
+)
+
+const IndentStyle = ({ children }: { children: React.ReactNode }) => (
+  <p style={{ marginLeft: 60 }}>{children}</p>
+)
 
 export const block = (
   arg: Partial<ArrayDefinition> & Partial<FieldDefinitionBase> = {},
@@ -20,8 +30,36 @@ export const block = (
       defineArrayMember({
         type: 'block',
         name: 'Content',
+
+        styles: [
+          { title: 'Normal', value: 'normal' },
+          { title: 'H1', value: 'h1' },
+          { title: 'H2', value: 'h2' },
+          { title: 'H3', value: 'h3' },
+          { title: 'H4', value: 'h4' },
+          { title: 'Quote', value: 'blockquote' },
+          {
+            title: 'Indent',
+            value: 'indent',
+            component: IndentStyle,
+          },
+        ],
         marks: {
-          annotations: [linkField()],
+          annotations: [richTextLink],
+
+          decorators: [
+            { title: 'Strong', value: 'strong' },
+            { title: 'Emphasis', value: 'em' },
+            { title: 'Code', value: 'code' },
+            { title: 'Underline', value: 'underline' },
+            { title: 'Strike', value: 'strike-through' },
+            {
+              title: 'Highlight',
+              value: 'highlight',
+              icon: HighlightIcon,
+              component: HighlightDecorator,
+            },
+          ],
         },
       }),
       defineArrayMember({
@@ -63,7 +101,6 @@ export const block = (
             images: 'images.0.asset',
           },
           prepare: ({ alt, images }) => {
-            console.log({ images })
             return {
               title: `Image(s): ${alt}`,
               media: images,
@@ -144,7 +181,6 @@ export const block = (
         type: 'reference',
         to: [{ type: 'banner' }],
       }),
-
       defineArrayMember({
         type: 'object',
         name: 'related',
@@ -234,7 +270,7 @@ export const richText = (
         type: 'block',
         name: 'Content',
         marks: {
-          annotations: [linkField()],
+          annotations: [richTextLink],
         },
       }),
       linksArrayField(),

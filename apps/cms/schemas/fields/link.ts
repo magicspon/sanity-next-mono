@@ -8,6 +8,86 @@ import {
 import { pageTreeConfig } from '../../page-tree-config'
 import { z } from 'zod'
 
+export const richTextLink = defineField({
+  name: 'link',
+  type: 'object',
+  title: 'Link',
+  fields: [
+    defineField({
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      initialValue: 'external',
+      validation: (Rule) => Rule.required(),
+      options: {
+        layout: 'radio',
+        direction: 'horizontal',
+        list: [
+          { value: 'external', title: 'external' },
+          { value: 'internal', title: 'internal' },
+          { value: 'email', title: 'email' },
+          { value: 'custom', title: 'custom' },
+        ],
+      },
+    }),
+    defineField({
+      name: 'url',
+      title: 'Url',
+      type: 'url',
+      hidden: ({ parent }) => parent?.type !== 'external',
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          const parent = context.parent as { type: string }
+          if (parent?.type !== 'external') return true
+          return parent?.type === 'external' &&
+            z.string().url().safeParse(value).success
+            ? true
+            : 'This field is required'
+        }),
+    }),
+    defineField({
+      name: 'custom',
+      title: 'Url',
+      type: 'string',
+      hidden: ({ parent }) => parent?.type !== 'custom',
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          const parent = context.parent as { type: string }
+          if (parent?.type !== 'custom') return true
+          return parent?.type === 'custom' &&
+            z.string().safeParse(value).success
+            ? true
+            : 'This field is required'
+        }),
+    }),
+    defineField({
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+      hidden: ({ parent }) => parent?.type !== 'email',
+      validation: (Rule) =>
+        Rule.custom((value, context) => {
+          const parent = context.parent as { type: string }
+          if (parent?.type !== 'email') return true
+          return parent?.type === 'email' &&
+            z.string().email().safeParse(value).success
+            ? true
+            : 'This field is required'
+        }),
+    }),
+    defineField({
+      name: 'href',
+      title: 'Page',
+      type: 'reference',
+      to: pageTreeConfig.pageSchemaTypes.map((d) => ({ type: d })),
+      hidden: ({ parent }) => parent?.type !== 'internal',
+      components: {
+        field: (props) => PageTreeField({ ...props, config: pageTreeConfig }),
+      },
+    }),
+  ],
+})
+
 export const linkField = (
   arg: Partial<ObjectDefinition> & Partial<FieldDefinitionBase> = {},
 ) =>
@@ -54,7 +134,7 @@ export const linkField = (
         name: 'url',
         title: 'Url',
         type: 'url',
-        hidden: ({ parent, value }) => !value && parent?.type !== 'external',
+        hidden: ({ parent }) => parent?.type !== 'external',
         validation: (Rule) =>
           Rule.custom((value, context) => {
             const parent = context.parent as { type: string }
@@ -69,7 +149,7 @@ export const linkField = (
         name: 'custom',
         title: 'Url',
         type: 'string',
-        hidden: ({ parent, value }) => !value && parent?.type !== 'custom',
+        hidden: ({ parent }) => parent?.type !== 'custom',
         validation: (Rule) =>
           Rule.custom((value, context) => {
             const parent = context.parent as { type: string }
@@ -84,7 +164,7 @@ export const linkField = (
         name: 'email',
         title: 'Email',
         type: 'string',
-        hidden: ({ parent, value }) => !value && parent?.type !== 'email',
+        hidden: ({ parent }) => parent?.type !== 'email',
         validation: (Rule) =>
           Rule.custom((value, context) => {
             const parent = context.parent as { type: string }
@@ -100,7 +180,7 @@ export const linkField = (
         title: 'Page',
         type: 'reference',
         to: pageTreeConfig.pageSchemaTypes.map((d) => ({ type: d })),
-        hidden: ({ parent, value }) => !value && parent?.type !== 'internal',
+        hidden: ({ parent }) => parent?.type !== 'internal',
         components: {
           field: (props) => PageTreeField({ ...props, config: pageTreeConfig }),
         },
@@ -108,8 +188,7 @@ export const linkField = (
           Rule.custom((value, context) => {
             const parent = context.parent as { type: string }
             if (parent?.type !== 'internal') return true
-            return parent?.type === 'internal' &&
-              z.string().safeParse(value).success
+            return parent?.type === 'internal' && !!value
               ? true
               : 'This field is required'
           }),
@@ -178,5 +257,6 @@ export const linksArrayField = (
         }
       },
     },
+
     ...arg,
   })

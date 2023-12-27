@@ -14,7 +14,6 @@ import { PROJECT_ID } from './lib/env'
 import { home } from './schemas/channel/home'
 import { page } from './schemas/channel/page'
 import { createPageTreeDocumentList } from '@q42/sanity-plugin-page-tree'
-import { pageTreeClient } from './queries/tree'
 import { pageTreeConfig } from './page-tree-config'
 import { post } from './schemas/channel/post'
 import { settings } from './schemas/channel/settings'
@@ -124,11 +123,6 @@ const config = defineConfig({
                         return `/blog/${document.slug.current}`
                       if (document?._type === 'post')
                         return `/blog/post/${document.slug.current}`
-                      const entry = await pageTreeClient.getPageMetadataById(
-                        document._id,
-                      )
-
-                      console.log({ entry })
 
                       return document.slug.current ?? new Error('Missing slug')
                     },

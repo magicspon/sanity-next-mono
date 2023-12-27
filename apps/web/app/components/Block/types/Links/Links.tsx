@@ -7,7 +7,7 @@ import { unwrapLinkTree } from '~utils/unwrapLinkTree'
 
 export function Links({ links, layout }: LinkSchema) {
   const items = React.useMemo(() => {
-    return links.map((link) => {
+    return links?.map((link) => {
       let href = link.href as string
       if (link.type === 'internal') {
         href = unwrapLinkTree(link.href)
@@ -23,7 +23,7 @@ export function Links({ links, layout }: LinkSchema) {
         'flex-col items-start': layout === 'stack',
       })}
     >
-      {items.map((link) => {
+      {items?.map((link) => {
         const local = link.type !== 'external'
         const Component = local ? Link : 'a'
 

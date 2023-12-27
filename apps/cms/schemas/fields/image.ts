@@ -17,7 +17,6 @@ export const image = (
       //   title: 'Caption',
       //   description: `Inline images only, will render as a caption below the image`,
       //   hidden: ({ parent, value }) => {
-      //     console.log({ parent, value })
       //     return !parent?.asset
       //   },
       // },

@@ -1,6 +1,9 @@
 import clsx from 'clsx'
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import 'ui/src/style/global.css'
+
+const font = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://example.com'),
@@ -25,7 +28,7 @@ export default async function RootLayout({
       <body
         className={clsx(
           'flex flex-col min-h-screen bg-background text-foreground',
-          // font.variable,
+          font.variable,
         )}
       >
         {children}

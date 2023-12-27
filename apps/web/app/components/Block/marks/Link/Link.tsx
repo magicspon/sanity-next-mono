@@ -5,17 +5,20 @@ import { unwrapLinkTree } from '~utils/unwrapLinkTree'
 
 export interface TLinkProps {
   children: React.ReactNode
-  link: LinkSchema['links'][number]
+  link: NonNullable<LinkSchema['links']>[number]
 }
 
 export function Link({ children, link }: TLinkProps) {
-  let href = link.href as string
-  if (link.type === 'internal') {
-    href = unwrapLinkTree(link.href)
-  }
+  const href = React.useMemo(() => {
+    let href = link.href as string
+    if (link.type === 'internal') {
+      href = unwrapLinkTree(link.href)
+    }
+    return href
+  }, [link.type, link.href])
   const local = link.type !== 'external'
   const Component = local ? NextLink : 'a'
-  const rel = link.type !== 'external' ? 'noreferrer noopener' : undefined
+  const rel = link.type === 'external' ? 'noreferrer noopener' : undefined
   return (
     <Component href={href} rel={rel}>
       {children}
