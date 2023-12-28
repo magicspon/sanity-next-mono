@@ -8,6 +8,8 @@ import {
 import { image } from './image'
 import { linksArrayField, richTextLink } from './link'
 import { cardField } from './card'
+import { urlBuilder } from '../../lib/image'
+import { Stack, Text, Flex, Button } from '@sanity/ui'
 
 const HighlightIcon = () => <span style={{ fontWeight: 'bold' }}>H</span>
 const HighlightDecorator = ({ children }: { children: React.ReactNode }) => (
@@ -105,6 +107,35 @@ export const block = (
               title: `Image(s): ${alt}`,
               media: images,
             }
+          },
+        },
+        components: {
+          preview: (props) => {
+            const actions = props.actions as Record<string, any>
+            const images = actions.props.value.images as {
+              asset: { _ref: string }
+            }[]
+
+            const urls = images
+              ?.filter((o) => o.asset)
+              .map((o) => urlBuilder(o.asset).url())
+
+            return (
+              <Stack space={[2]} padding={2}>
+                <Flex align="center" justify="space-between">
+                  <Text>Images</Text>
+                  <Button
+                    fontSize={[1]}
+                    // mode="ghost"
+                    padding={[1]}
+                    text="Edit"
+                  />
+                </Flex>
+                <Stack space={[1]}>
+                  {urls?.map((u) => <img key={u} src={u} alt="" />)}
+                </Stack>
+              </Stack>
+            )
           },
         },
       }),
