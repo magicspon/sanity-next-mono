@@ -15,7 +15,7 @@ export interface THeaderProps {
 
 export function Header({ items }: THeaderProps) {
   return (
-    <div>
+    <header>
       <Link href="/">index</Link>
       {items && (
         <nav>
@@ -30,6 +30,6 @@ export function Header({ items }: THeaderProps) {
           ))}
         </nav>
       )}
-    </div>
+    </header>
   )
 }

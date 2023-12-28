@@ -10,10 +10,10 @@ const _home = defineType({
   name: 'home',
   type: 'document',
   title: 'Home',
-  groups: [{ name: 'page', default: true }, { name: 'seo' }],
+  groups: [{ name: 'hero' }, { name: 'page', default: true }, { name: 'seo' }],
   fields: [
     titleField({ group: 'page' }),
-    heroField({ group: 'page' }),
+    heroField({ group: 'hero' }),
     block({ group: 'page' }),
     openGraph({ group: 'seo' }),
   ],

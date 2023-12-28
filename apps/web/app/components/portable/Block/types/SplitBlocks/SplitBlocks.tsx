@@ -1,0 +1,45 @@
+import { PortableBlocks } from 'cms/queries/fragments/portable.fragment'
+import Image from 'next/image'
+import * as React from 'react'
+import { Heading } from 'ui/src/primitives/Heading'
+import { Stack } from 'ui/src/primitives/Stack'
+import { RichText } from '~components/portable/RichText'
+import { imageProps } from '~utils/imageProps'
+
+export interface TSplitBlocksProps {}
+
+export function SplitBlocks({ cards }: PortableBlocks) {
+  return (
+    <>
+      {cards?.map((card) => (
+        <React.Fragment key={card._key}>
+          {card.flip ? (
+            <>
+              <div className="col-start-1 col-end-6">
+                {card.image && <Image {...imageProps(card.image)} />}
+              </div>
+              <div className="col-start-6 col-end-8">
+                <Stack>
+                  <Heading>{card.title}</Heading>
+                  <RichText block={card.body} />
+                </Stack>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="col-start-4 col-end-6">
+                <Stack>
+                  <Heading>{card.title}</Heading>
+                  <RichText block={card.body} />
+                </Stack>
+              </div>
+              <div className="col-start-6 col-end-11">
+                {card.image && <Image {...imageProps(card.image)} />}
+              </div>
+            </>
+          )}
+        </React.Fragment>
+      ))}
+    </>
+  )
+}

@@ -4,6 +4,7 @@ import {
   FieldDefinitionBase,
   defineField,
   defineArrayMember,
+  FieldDefinition,
 } from 'sanity'
 import { pageTreeConfig } from '../../page-tree-config'
 import { z } from 'zod'
@@ -179,7 +180,6 @@ export const linkField = (
               : 'This field is required'
           }),
       }),
-
       defineField({
         name: 'variant',
         title: 'Variant',
@@ -202,8 +202,9 @@ export const linkField = (
 
 export const linksArrayField = (
   arg: Partial<ObjectDefinition> & Partial<FieldDefinitionBase> = {},
-) =>
-  defineField({
+) => {
+  const { fields = [], ...rest } = arg
+  return defineField({
     name: 'links',
     type: 'object',
     title: 'Links',
@@ -230,6 +231,7 @@ export const linksArrayField = (
           return !(parent?.links?.length > 1)
         },
       }),
+      ...(fields as FieldDefinition[]),
     ],
     preview: {
       select: {
@@ -244,5 +246,6 @@ export const linksArrayField = (
       },
     },
 
-    ...arg,
+    ...rest,
   })
+}

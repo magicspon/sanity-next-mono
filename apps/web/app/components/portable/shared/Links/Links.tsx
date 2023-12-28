@@ -5,7 +5,11 @@ import * as React from 'react'
 import { Button, type ButtonVariants } from 'ui/src/primitives/Button'
 import { unwrapLinkTree } from '~utils/unwrapLinkTree'
 
-export function Links({ links, layout }: LinkSchema) {
+export function Links({
+  links,
+  layout,
+  className,
+}: LinkSchema & { className?: string }) {
   const items = React.useMemo(() => {
     return links?.map((link) => {
       let href = link.href as string
@@ -19,7 +23,7 @@ export function Links({ links, layout }: LinkSchema) {
 
   return (
     <div
-      className={clsx('flex gap-5', {
+      className={clsx(className, 'flex gap-5', {
         'flex-col items-start': layout === 'stack',
       })}
     >

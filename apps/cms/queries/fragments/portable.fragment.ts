@@ -1,7 +1,7 @@
 import { InferType, TypeFromSelection, q, Selection } from 'groqd'
 import { contentBlockSelection } from './block.fragment'
 import { imageSelection } from './image.fragment'
-import { link, links } from './link.fragment'
+import { link } from './link.fragment'
 
 const images = {
   _type: q.literal('images'),
@@ -18,50 +18,63 @@ const images = {
 
 export type PortableImages = TypeFromSelection<typeof images>
 
+const linksSelection = {
+  _type: q.literal('links'),
+  layout: q.string(),
+  indent: q.boolean().optional().default(false).nullable(),
+  links: q('links').filter().select(link),
+} satisfies Selection
+
+export type PortableLinks = TypeFromSelection<typeof linksSelection>
+
+export const richText = q('body').filter().select({
+  "_type == 'Content'": contentBlockSelection,
+  "_type == 'links'": linksSelection,
+})
+
+export type RichText = InferType<typeof richText>
+
 const blocks = {
   _type: q.literal('blocks'),
   layout: q.string(),
   variant: q.string(),
+  columns: q.number().default(4).nullable(),
   cards: q('cards')
     .filter()
     .grab$({
-      links,
+      _key: q.string(),
       title: q.string(),
-      body: q('body')
-        .filter()
-        .select({
-          "_type == 'Content'": contentBlockSelection,
-          "_type == 'links'": {
-            _type: q.literal('links'),
-            layout: q.string(),
-            links: q('links').filter().select(link),
-          },
-        }),
+      flip: q.boolean().optional().default(false),
+      body: richText,
       image: q('image')
         .grab({
           _type: q.literal('image'),
           ...imageSelection,
         })
         .nullable(),
-      // links,
     }),
 } satisfies Selection
 
+const breakSelection = {
+  _type: q.literal('break'),
+  style: q('style'),
+  size: q('size'),
+}
+
+const youtubeSelection = {
+  _type: q.literal('youtube'),
+  url: q.string().url(),
+}
+
 export type PortableBlocks = TypeFromSelection<typeof blocks>
-
-const linksSelection = {
-  _type: q.literal('links'),
-  layout: q.string(),
-  links: q('links').filter().select(link),
-} satisfies Selection
-
-export type PortableLinks = TypeFromSelection<typeof linksSelection>
 
 export const body = q('body').filter().select({
   "_type == 'Content'": contentBlockSelection,
   "_type == 'links'": linksSelection,
   "_type == 'blocks'": blocks,
   "_type == 'images'": images,
+  "_type == 'break'": breakSelection,
+  "_type == 'youtube'": youtubeSelection,
 })
 
 export type Body = InferType<typeof body>
