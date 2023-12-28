@@ -36,7 +36,7 @@ export const heading3 = cva('col-[content] font-semibold', {
 export const heading4 = cva('col-[content] font-bold', {
   variants: {
     variant: {
-      primary: '[&:has(+*)]:mb-5',
+      primary: '[&:has(+*)]:mb-6',
     },
   },
   defaultVariants: {
@@ -47,7 +47,7 @@ export const heading4 = cva('col-[content] font-bold', {
 export const normal = cva('col-[content]', {
   variants: {
     variant: {
-      primary: '[&:has(+*)]:mb-5',
+      primary: '[&:has(+*)]:mb-6',
     },
   },
   defaultVariants: {

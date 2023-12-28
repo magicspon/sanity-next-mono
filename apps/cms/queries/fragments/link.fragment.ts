@@ -2,14 +2,20 @@ import { q, InferType, Selection } from 'groqd'
 
 export const richText = {
   "type == 'external'": {
+    _key: q.string().nullable().optional(),
+    _type: q.literal('link').nullable(),
     type: q.literal('external'),
     href: q('url'),
   } satisfies Selection,
   "type == 'custom'": {
+    _key: q.string().nullable().optional(),
+    _type: q.literal('link').nullable(),
     type: q.literal('custom'),
     href: q('custom'),
   } satisfies Selection,
   "type == 'internal'": {
+    _key: q.string().nullable().optional(),
+    _type: q.literal('link').nullable(),
     type: q.literal('internal'),
     href: q('href')
       .deref()
@@ -44,6 +50,8 @@ export const richText = {
     variant: q.string(),
   } satisfies Selection,
   "type == 'email'": {
+    _key: q.string().nullable().optional(),
+    _type: q.literal('link').nullable(),
     type: q.literal('email'),
     href: q('@').grabOne(
       'email',

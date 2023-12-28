@@ -10,7 +10,7 @@ export function HomePage({ data }: { data: HomeQuery }) {
 
   return (
     <div className="grid grid-cols-site">
-      <Block variant="primary" block={page?.body} />
+      <Block variant="primary" block={page.body} />
     </div>
   )
 }

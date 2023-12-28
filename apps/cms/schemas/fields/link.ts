@@ -8,28 +8,30 @@ import {
 import { pageTreeConfig } from '../../page-tree-config'
 import { z } from 'zod'
 
+const linkType = defineField({
+  name: 'type',
+  title: 'Type',
+  type: 'string',
+  initialValue: 'external',
+  validation: (Rule) => Rule.required(),
+  options: {
+    layout: 'radio',
+    direction: 'horizontal',
+    list: [
+      { value: 'external', title: 'external' },
+      { value: 'internal', title: 'internal' },
+      { value: 'email', title: 'email' },
+      { value: 'custom', title: 'custom' },
+    ],
+  },
+})
+
 export const richTextLink = defineField({
   name: 'link',
   type: 'object',
   title: 'Link',
   fields: [
-    defineField({
-      name: 'type',
-      title: 'Type',
-      type: 'string',
-      initialValue: 'external',
-      validation: (Rule) => Rule.required(),
-      options: {
-        layout: 'radio',
-        direction: 'horizontal',
-        list: [
-          { value: 'external', title: 'external' },
-          { value: 'internal', title: 'internal' },
-          { value: 'email', title: 'email' },
-          { value: 'custom', title: 'custom' },
-        ],
-      },
-    }),
+    linkType,
     defineField({
       name: 'url',
       title: 'Url',
@@ -106,23 +108,7 @@ export const linkField = (
       },
     },
     fields: [
-      defineField({
-        name: 'type',
-        title: 'Type',
-        type: 'string',
-        initialValue: 'external',
-        validation: (Rule) => Rule.required(),
-        options: {
-          layout: 'radio',
-          direction: 'horizontal',
-          list: [
-            { value: 'external', title: 'external' },
-            { value: 'internal', title: 'internal' },
-            { value: 'email', title: 'email' },
-            { value: 'custom', title: 'custom' },
-          ],
-        },
-      }),
+      linkType,
       defineField({
         name: 'text',
         title: 'Text',
