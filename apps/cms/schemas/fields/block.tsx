@@ -425,6 +425,11 @@ export const block = (
               direction: 'horizontal',
             },
           }),
+          defineField({
+            name: 'indent',
+            type: 'boolean',
+            initialValue: false,
+          }),
         ],
         preview: {
           prepare() {

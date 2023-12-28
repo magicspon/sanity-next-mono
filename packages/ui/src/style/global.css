@@ -1,16 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  @apply font-sans;
-}
-
-:root {
-  --max-width: 1200px;
-  --gap: clamp(1rem, 2vw, 3rem);
-  --full: minmax(var(--gap), 1fr);
-  --popout: minmax(0, 2rem);
-  --feature: minmax(0, 5rem);
-  --columns: repeat(4, minmax(auto, 300px));
-}

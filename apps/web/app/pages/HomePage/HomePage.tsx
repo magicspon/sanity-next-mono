@@ -8,9 +8,5 @@ export function HomePage({ data }: { data: HomeQuery }) {
 
   if (!page) notFound()
 
-  return (
-    <div className="grid grid-cols-site">
-      <Block variant="primary" block={page.body} />
-    </div>
-  )
+  return <Block variant="primary" block={page.body} />
 }

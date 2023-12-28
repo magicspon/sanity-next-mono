@@ -18,7 +18,7 @@ export type BlockProps = {
 
 export function Block({ block, variant }: BlockProps) {
   return (
-    <>
+    <div className="grid grid-cols-site grid-flow-col-dense">
       <PortableText
         value={block as PortableTextProps['value']}
         components={{
@@ -57,10 +57,25 @@ export function Block({ block, variant }: BlockProps) {
               )
             },
             break: ({ value }) => {
-              console.log({ value })
               return (
-                <div className="col-[full]">
-                  <hr />
+                <div
+                  className={clsx(
+                    'flex items-center',
+                    value.indent ? 'col-start-5 col-span-3' : 'col-[full]',
+                    {
+                      'h-12': value.size === 'small',
+                      'h-24': value.size === 'medium',
+                      'h-48': value.size === 'large',
+                    },
+                  )}
+                >
+                  {value.style !== 'blank' && (
+                    <hr
+                      className={clsx('w-full', {
+                        'border-dotted': value.style === 'dotted',
+                      })}
+                    />
+                  )}
                 </div>
               )
             },
@@ -111,6 +126,6 @@ export function Block({ block, variant }: BlockProps) {
           },
         }}
       />
-    </>
+    </div>
   )
 }

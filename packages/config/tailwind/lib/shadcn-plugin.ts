@@ -5,6 +5,13 @@ export const shadcnPlugin = plugin(
     // colours
     addBase({
       ':root': {
+        '--max-width': '1200px',
+        '--gap': 'clamp(1rem, 1vw, 3rem)',
+        '--full': 'minmax(var(--gap), 1fr)',
+        '--popout': 'minmax(0, 1rem)',
+        '--feature': 'minmax(0, 2rem)',
+        '--columns': 'repeat(4, minmax(auto, 300px))',
+
         '--background': '0 0% 100%',
         '--foreground': '240 10% 3.9%',
         '--card': '0 0% 100%',

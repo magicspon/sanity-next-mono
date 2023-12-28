@@ -27,7 +27,7 @@ export default async function RootLayout({
       </head>
       <body
         className={clsx(
-          'flex flex-col min-h-screen bg-background text-foreground',
+          'flex flex-col min-h-screen bg-background text-foreground font-sans',
           font.variable,
         )}
       >

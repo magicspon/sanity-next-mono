@@ -59,6 +59,7 @@ const breakSelection = {
   _type: q.literal('break'),
   style: q('style'),
   size: q('size'),
+  indent: q.boolean().optional().default(false).nullable(),
 }
 
 const youtubeSelection = {
