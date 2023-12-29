@@ -1,21 +1,19 @@
 import * as React from 'react'
 import { LiveQuery } from 'next-sanity/preview/live-query'
-import { draftMode } from 'next/headers'
 import {
   PostCategory,
   PostCategoryPreview,
   Props,
   getData,
 } from '~pages/PostCategory'
-import { blogCategoryQuery } from 'cms/queries/pages/blog.query'
 
 export default async function Index({ params }: Props) {
-  const { data } = await getData({ params })
+  const { data, query, draftMode } = await getData({ params })
 
   return (
     <LiveQuery
-      enabled={draftMode().isEnabled}
-      query={blogCategoryQuery.query}
+      enabled={draftMode}
+      query={query}
       initialData={data}
       as={PostCategoryPreview}
       params={params}

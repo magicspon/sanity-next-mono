@@ -9,10 +9,10 @@ export type Props = {
 }
 
 export async function getData({ params }: Props) {
-  const [draftMopde, runner] = createSanityFetcher()
+  const [draftMode, runner] = createSanityFetcher()
   const data = await runner(blogCategoryQuery, params, {
     next: { tags: ['category'] },
   })
   // const allPagesMetadata = await getAllPageMetadata()
-  return { data, draftMopde }
+  return { data, draftMode, query: blogCategoryQuery.query }
 }

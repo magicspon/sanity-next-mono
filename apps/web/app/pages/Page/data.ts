@@ -10,21 +10,23 @@ export type Props = {
   }
 }
 
-export type PageProps = {
+type CoreProps = {
+  id: string
+  query: string
+  draftMode: boolean
+}
+
+export type PageProps = CoreProps & {
   type: 'page'
   data: PageQuery
-  id: string
-  query: string
 }
-export type ListingProps = {
+export type ListingProps = CoreProps & {
   type: 'listing'
   data: ListingQuery
-  id: string
-  query: string
 }
 
 export async function getData({ params }: Props) {
-  const [, runner] = createSanityFetcher()
+  const [draftMode, runner] = createSanityFetcher()
   const pageMeta = await getPageMetaData(`/${params.page.join('/')}`)
   if (!pageMeta) notFound()
   const { _id: id, type } = pageMeta
@@ -45,5 +47,6 @@ export async function getData({ params }: Props) {
     data,
     id,
     type,
+    draftMode,
   } as PageProps | ListingProps
 }
