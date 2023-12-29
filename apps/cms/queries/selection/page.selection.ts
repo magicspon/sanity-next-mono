@@ -4,6 +4,7 @@ import { heroFragment } from '../fragments/hero.fragment'
 import { body } from '../fragments/portable.fragment'
 
 export const pageDocument = {
+  _type: q.literal('page'),
   title: q.string(),
   hero: heroFragment.nullable(),
   body: body,

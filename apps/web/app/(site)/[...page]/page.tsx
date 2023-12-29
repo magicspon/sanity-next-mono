@@ -2,20 +2,19 @@ import * as React from 'react'
 import { LiveQuery } from 'next-sanity/preview/live-query'
 import { draftMode } from 'next/headers'
 import { Page, PagePreview, getData, Props } from '~pages/Page'
-import { pageQuery } from 'cms/queries/pages/page.query'
 
 export default async function Index({ params }: Props) {
-  const data = await getData({ params })
+  const resp = await getData({ params })
 
   return (
     <LiveQuery
       enabled={draftMode().isEnabled}
-      query={pageQuery.query}
-      initialData={data}
+      query={resp.query}
+      initialData={resp.data}
       as={PagePreview}
-      params={{ id: data?._id }}
+      params={{ id: resp.id }}
     >
-      <Page data={data} />
+      <Page {...resp} />
     </LiveQuery>
   )
 }

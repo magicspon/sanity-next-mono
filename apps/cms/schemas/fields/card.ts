@@ -21,7 +21,7 @@ export const cardField = (
       image({
         group: 'image',
         hidden: (doc) => {
-          const key = doc.parent._key
+          const key = doc?.parent?._key
           const cardParentBlock = (doc.document?.body as any[])?.find(
             (b) =>
               b._type === 'blocks' &&
