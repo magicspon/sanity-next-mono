@@ -9,14 +9,17 @@ import clsx from 'clsx'
 
 export interface TBlocksProps {}
 
-const left = 'col-[content] lg:col-start-4 lg:col-end-6'
-const right = 'col-[content] lg:col-start-6 lg:col-end-8'
+const left = 'col-start-1'
+const right = 'col-start-2'
 
 export function StackBlocks({ cards }: PortableBlocks) {
   return (
     <>
       {cards?.map((card) => (
-        <React.Fragment key={card._key}>
+        <div
+          className="col-[content] grid grid-cols-2 grid-flow-col-dense"
+          key={card._key}
+        >
           {card.image && (
             <div className={clsx(card.flip ? left : right)}>
               <Image {...imageProps(card.image)} />
@@ -31,7 +34,7 @@ export function StackBlocks({ cards }: PortableBlocks) {
             <Heading>{card.title}</Heading>
             <RichText block={card.body} />
           </Stack>
-        </React.Fragment>
+        </div>
       ))}
     </>
   )

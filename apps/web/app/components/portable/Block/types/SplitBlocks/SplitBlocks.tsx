@@ -13,7 +13,10 @@ export function SplitBlocks({ cards }: PortableBlocks) {
   return (
     <>
       {cards?.map((card) => (
-        <React.Fragment key={card._key}>
+        <div
+          className="col-[full] grid grid-cols-site grid-flow-col-dense"
+          key={card._key}
+        >
           <div
             className={clsx(
               card.flip
@@ -34,7 +37,7 @@ export function SplitBlocks({ cards }: PortableBlocks) {
           >
             {card.image && <Image {...imageProps(card.image)} />}
           </div>
-        </React.Fragment>
+        </div>
       ))}
     </>
   )
