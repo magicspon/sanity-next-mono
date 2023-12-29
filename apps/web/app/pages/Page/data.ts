@@ -16,14 +16,20 @@ type CoreProps = {
   draftMode: boolean
 }
 
-export type PageProps = CoreProps & {
-  type: 'page'
-  data: PageQuery
-}
-export type ListingProps = CoreProps & {
+export type ListingProps = {
   type: 'listing'
   data: ListingQuery
 }
+
+export type PageProps = {
+  type: 'page'
+  data: PageQuery
+}
+
+export type PageOrListing = ListingProps | PageProps
+
+export type PageDataProps = CoreProps & PageProps
+export type ListingDataProps = CoreProps & ListingProps
 
 export async function getData({ params }: Props) {
   const [draftMode, runner] = createSanityFetcher()
@@ -48,5 +54,5 @@ export async function getData({ params }: Props) {
     id,
     type,
     draftMode,
-  } as PageProps | ListingProps
+  } as PageDataProps | ListingDataProps
 }

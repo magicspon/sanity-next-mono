@@ -1,35 +1,24 @@
-import { ListingQuery } from 'cms/queries/pages/listing.query'
-import { PageQuery } from 'cms/queries/pages/page.query'
 import { notFound } from 'next/navigation'
 import { getFirstOrNull } from 'utils/getFirstOrNull'
 import { Hero } from '~components/Hero'
 import { Block } from '~components/portable/Block'
 import { Debug } from '~utils/Debug'
+import { ListingProps, PageOrListing, PageProps } from './data'
 
-type ListingProps = {
-  type: 'listing'
-  data: ListingQuery
-}
-
-type PageProps = {
-  type: 'page'
-  data: PageQuery
-}
-
-export function Page({ data, type }: ListingProps | PageProps) {
-  if (type === 'page') {
-    const entry = getFirstOrNull(data.page)
-    if (!entry) {
-      notFound()
-    }
-    return (
-      <>
-        {entry.hero && <Hero {...entry.hero} />}
-        <Block variant="primary" block={entry.body} />
-      </>
-    )
+function PageTemplate({ data }: Pick<PageProps, 'data'>) {
+  const entry = getFirstOrNull(data.page)
+  if (!entry) {
+    notFound()
   }
+  return (
+    <>
+      {entry.hero && <Hero {...entry.hero} />}
+      <Block variant="primary" block={entry.body} />
+    </>
+  )
+}
 
+function ListingTemplate({ data }: Pick<ListingProps, 'data'>) {
   const entry = getFirstOrNull(data.page)
   if (!entry) {
     notFound()
@@ -41,4 +30,12 @@ export function Page({ data, type }: ListingProps | PageProps) {
       <Debug render pages={data.pages} />
     </>
   )
+}
+
+export function Page({ data, type }: PageOrListing) {
+  if (type === 'page') {
+    return <PageTemplate data={data} />
+  }
+
+  return <ListingTemplate data={data} />
 }
