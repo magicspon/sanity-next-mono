@@ -17,6 +17,7 @@
   "globalEnv": [
     "CI",
     "NO_SERVER",
+    "NODE_ENV",
 
     "NEXT_PUBLIC_ALGOLIA_APPLICATION_ID",
     "NEXT_PUBLIC_ALGOLIA_SEARCH_KEY",

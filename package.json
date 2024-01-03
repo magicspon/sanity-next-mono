@@ -11,18 +11,18 @@
     "url": "ssh://git@github.com:magicspon/sanity-next-mono.git"
   },
   "license": "MIT",
-  "packageManager": "yarn@1.22.17",
+  "packageManager": "pnpm@8.14.0",
   "scripts": {
-    "dev": "turbo dev --filter=web",
+    "dev": "turbo dev --filter=astro",
     "start": "turbo run start",
     "start:ci": "INSECURE_AUTH=true turbo run start",
     "build": "turbo build --filter=web",
-    "deploy": "cd apps/cms; yarn deploy",
+    "deploy": "cd apps/cms; pnpm run deploy",
     "new:component": "hygen new component",
     "new:hook": "hygen new hook",
     "clean:workspaces": "turbo clean",
     "clean": "rm -rf node_modules",
-    "pretest": "yarn prisma:reset --force",
+    "pretest": "pnpm run prisma:reset --force",
     "test": "turbo test -- --passWithNoTests",
     "lint": "turbo lint --filter=!react-email-client && manypkg check",
     "format": "prettier --write \"**/*.{ts,tsx,md,json,css}\"",
@@ -46,20 +46,16 @@
     "turbo": "^1.11.2",
     "typescript": "^5.3.3"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/**/*"
-  ],
   "engines": {
-    "node": ">=16.0.0",
-    "yarn": "^1.2"
+    "node": ">=18",
+    "pnpm": ">=3"
   },
   "quokka": {
     "babel": {
       "env": "test",
       "polyfill": false
     },
-    "installPackageCommand": "yarn add {packageName}",
+    "installPackageCommand": "pnpm add {packageName}",
     "env": {
       "params": {
         "env": "NODE_ENV=test"

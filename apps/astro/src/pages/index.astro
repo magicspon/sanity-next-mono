@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { runQuery } from 'cms/lib/runner'
+import { homeQuery } from 'cms/queries/pages/home.query'
+
+const data = await runQuery(homeQuery, {}, { next: { tags: ['home'] } })
+  
+---
+
+<Layout title="Welcome to Astro.">
+	<pre>{JSON.stringify(data, null, 2)}</pre>
+</Layout>

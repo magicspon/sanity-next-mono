@@ -19,5 +19,6 @@ export const getAllPageMetadata = async () =>
 
 export const getPageMetaData = async (path: string) => {
   const data = await getAllPageMetadata()
+
   return data.find((d) => d.path === path)
 }
