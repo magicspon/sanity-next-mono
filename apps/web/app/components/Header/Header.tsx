@@ -4,13 +4,8 @@ import * as React from 'react'
 import { NavLink } from '~components/NavLink'
 import { TLinkRef } from '~utils/unwrapLinkTree'
 
-type MenuItem = GlobalQuery['mainMenu'][number]
-
 export interface THeaderProps {
-  items?: {
-    _key: string
-    link: NonNullable<MenuItem['items'][number]['link']>
-  }[]
+  items?: GlobalQuery['mainMenu'][number]['items']
 }
 
 export function Header({ items }: THeaderProps) {
@@ -22,8 +17,8 @@ export function Header({ items }: THeaderProps) {
           {items.map((item) => (
             <NavLink
               key={item._key}
-              href={item.link.href as string | TLinkRef}
-              type={item.link.type}
+              href={item!.link!.href as string | TLinkRef}
+              type={item!.link!.type}
             >
               {item.link!.text}
             </NavLink>

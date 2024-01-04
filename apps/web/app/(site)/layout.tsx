@@ -3,6 +3,7 @@ import { ConditionalPreviewProvider } from '~(sanity)/components/ConditionalPrev
 import { globalQuery } from 'cms/queries/pages/global.query'
 import { Header } from '~components/Header'
 import { getFirstOrNull } from 'utils/getFirstOrNull'
+import { Providers } from './provider'
 
 export default async function RootLayout({
   children,
@@ -13,9 +14,11 @@ export default async function RootLayout({
   const menu = getFirstOrNull(data.mainMenu)
 
   return (
-    <ConditionalPreviewProvider>
+    <Providers>
       <Header items={menu?.items} />
-      <main>{children}</main>
-    </ConditionalPreviewProvider>
+      <ConditionalPreviewProvider>
+        <main>{children}</main>
+      </ConditionalPreviewProvider>
+    </Providers>
   )
 }

@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   },
   title: 'example',
   description: '',
+  other: {
+    'msapplication-TileColor': '#180048',
+    'theme-color': '#180048',
+  },
 }
 
 export default async function RootLayout({
@@ -21,10 +25,6 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="msapplication-TileColor" content="#180048" />
-        <meta name="theme-color" content="#180048"></meta>
-      </head>
       <body
         className={clsx(
           'flex flex-col min-h-screen bg-background text-foreground font-sans',
