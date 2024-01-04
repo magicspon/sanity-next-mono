@@ -10,7 +10,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const data = await runQuery(globalQuery, {})
+  // Type instantiation is excessively deep and possibly infinite
+  // this one is potentially a prety deep query. But it's fine, ts can handle it
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const data = await runQuery(globalQuery, {}, { next: { tags: ['global'] } })
   const menu = getFirstOrNull(data.mainMenu)
 
   return (

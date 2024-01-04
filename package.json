@@ -14,7 +14,7 @@
   "packageManager": "pnpm@8.14.0",
   "scripts": {
     "dev": "turbo dev --filter=web",
-    "start": "turbo run start",
+    "start": "turbo start --filter=web",
     "start:ci": "INSECURE_AUTH=true turbo run start",
     "build": "turbo build --filter=web",
     "deploy": "cd apps/cms; pnpm run deploy",

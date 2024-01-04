@@ -17,6 +17,7 @@ export type BlockProps = {
 } & style.Variant
 
 export function Block({ block, variant }: BlockProps) {
+  console.log('[HELLO]')
   return (
     <div className="grid grid-cols-site grid-flow-col-dense">
       <PortableText

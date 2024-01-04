@@ -1,5 +1,32 @@
 import { q, InferType, Selection } from 'groqd'
 
+const _slug = {
+  slug: q.slug('slug'),
+} satisfies Selection
+
+const _link = {
+  slug: _slug.slug,
+  parent: q('parent')
+    .deref()
+    .select({
+      "parent != 'null'": {
+        slug: _slug.slug,
+        parent: q('parent')
+          .deref()
+          .select({
+            "parent != 'null'": {
+              slug: _slug.slug,
+              parent: q('parent').deref().select({
+                default: _slug,
+              }),
+            },
+            default: _slug,
+          }),
+      },
+      default: _slug,
+    }),
+} satisfies Selection
+
 export const richText = {
   "type == 'external'": {
     _key: q.string().nullable().optional(),
@@ -20,29 +47,7 @@ export const richText = {
     href: q('href')
       .deref()
       .select({
-        "parent != 'null'": {
-          slug: q.slug('slug'),
-          parent: q('parent')
-            .deref()
-            .select({
-              "parent != 'null'": {
-                slug: q.slug('slug'),
-                parent: q('parent')
-                  .deref()
-                  .select({
-                    "parent != 'null'": {
-                      slug: q.slug('slug'),
-                    },
-                    default: {
-                      slug: q.slug('slug'),
-                    },
-                  }),
-              },
-              default: {
-                slug: q.slug('slug'),
-              },
-            }),
-        },
+        "parent != 'null'": _link,
         default: {
           slug: q.slug('slug'),
         },
@@ -85,29 +90,7 @@ export const link = {
     href: q('href')
       .deref()
       .select({
-        "parent != 'null'": {
-          slug: q.slug('slug'),
-          parent: q('parent')
-            .deref()
-            .select({
-              "parent != 'null'": {
-                slug: q.slug('slug'),
-                parent: q('parent')
-                  .deref()
-                  .select({
-                    "parent != 'null'": {
-                      slug: q.slug('slug'),
-                    },
-                    default: {
-                      slug: q.slug('slug'),
-                    },
-                  }),
-              },
-              default: {
-                slug: q.slug('slug'),
-              },
-            }),
-        },
+        "parent != 'null'": _link,
         default: {
           slug: q.slug('slug'),
         },

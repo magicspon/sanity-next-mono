@@ -4,6 +4,12 @@ const nextConfig = {
 
   transpilePackages: ['api', 'cms', 'tailwind-config', 'ui', 'utils'],
 
+  // We already do linting on GH actions
+  eslint: {
+    // eslint-disable-next-line turbo/no-undeclared-env-vars
+    ignoreDuringBuilds: !!process.env.CI,
+  },
+
   images: {
     remotePatterns: [
       {

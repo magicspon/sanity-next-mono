@@ -20,6 +20,7 @@
     "@sanity/icons": "^2.8.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.1.0",
+    "@sanity/ui": "^1.9.3",
     "@sanity/vision": "3.23.4",
     "get-youtube-id": "^1.0.1",
     "groqd": "^0.15.10",
@@ -42,6 +43,8 @@
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^3.0.0",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
     "eslint-config-custom": "*",
     "tsconfig": "0.0.0",
     "typescript": "^5.3.3"
