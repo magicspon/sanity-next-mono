@@ -23,7 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cms": "0.0.0",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^11.0.3",
     "next": "14.0.4",
     "next-sanity": "^7.0.5",
     "popmotion": "^11.0.5",
