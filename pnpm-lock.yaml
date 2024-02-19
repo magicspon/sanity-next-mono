@@ -99,8 +99,8 @@ importers:
         specifier: ^0.0.18
         version: 0.0.18(@sanity/icons@2.8.0)(@sanity/ui@1.9.3)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.23.4)(styled-components@6.1.6)
       marked:
-        specifier: ^11.1.0
-        version: 11.1.1
+        specifier: ^12.0.0
+        version: 12.0.0
       nanoid:
         specifier: ^5.0.4
         version: 5.0.4
@@ -4863,7 +4863,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       rxjs: 7.8.1
-      sanity: 3.23.4(@types/node@20.10.6)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
+      sanity: 3.23.4(@types/node@18.19.4)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
       styled-components: 6.1.6(react-dom@18.2.0)(react@18.2.0)
       suspend-react: 0.1.3(react@18.2.0)
     transitivePeerDependencies:
@@ -6943,7 +6943,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.7)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 4.5.1(@types/node@20.10.6)
+      vite: 4.5.1(@types/node@18.19.4)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -12010,8 +12010,8 @@ packages:
       react: 18.2.0
     dev: true
 
-  /marked@11.1.1:
-    resolution: {integrity: sha512-EgxRjgK9axsQuUa/oKMx5DEY8oXpKJfk61rT5iY3aRlgU6QJtUcxU5OAymdhCvWvhYcd9FKmO5eQoX8m9VGJXg==}
+  /marked@12.0.0:
+    resolution: {integrity: sha512-Vkwtq9rLqXryZnWaQc86+FHLC6tr/fycMfYAhiOIXkrNmeGAyhSxjqu0Rs1i0bBqw5u0S7+lV9fdH2ZSVaoa0w==}
     engines: {node: '>= 18'}
     hasBin: true
     dev: false
@@ -12356,7 +12356,7 @@ packages:
       groq: 3.23.4
       next: 14.0.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      sanity: 3.23.4(@types/node@20.10.6)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
+      sanity: 3.23.4(@types/node@18.19.4)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
       styled-components: 6.1.6(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
