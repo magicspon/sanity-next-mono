@@ -17,7 +17,7 @@
     "@storybook/addon-interactions": "^7.6.5",
     "@storybook/addon-links": "^7.6.5",
     "@storybook/addon-onboarding": "^1.0.9",
-    "@storybook/blocks": "^7.6.5",
+    "@storybook/blocks": "^7.6.16",
     "@storybook/nextjs": "^7.6.5",
     "@storybook/react": "^7.6.5",
     "@storybook/react-webpack5": "^7.6.5",
