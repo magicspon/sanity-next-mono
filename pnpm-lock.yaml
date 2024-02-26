@@ -187,14 +187,14 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       '@tanstack/react-query':
-        specifier: ^5.15.0
-        version: 5.17.1(react@18.2.0)
+        specifier: ^5.24.1
+        version: 5.24.1(react@18.2.0)
       '@tanstack/react-query-devtools':
         specifier: ^5.17.1
-        version: 5.17.1(@tanstack/react-query@5.17.1)(react@18.2.0)
+        version: 5.17.1(@tanstack/react-query@5.24.1)(react@18.2.0)
       '@tanstack/react-query-next-experimental':
         specifier: ^5.15.0
-        version: 5.17.1(@tanstack/react-query@5.17.1)(next@14.0.4)(react@18.2.0)
+        version: 5.17.1(@tanstack/react-query@5.24.1)(next@14.0.4)(react@18.2.0)
       '@vercel/analytics':
         specifier: ^1.1.1
         version: 1.1.1
@@ -4863,7 +4863,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       rxjs: 7.8.1
-      sanity: 3.23.4(@types/node@20.10.6)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
+      sanity: 3.23.4(@types/node@18.19.4)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
       styled-components: 6.1.6(react-dom@18.2.0)(react@18.2.0)
       suspend-react: 0.1.3(react@18.2.0)
     transitivePeerDependencies:
@@ -6170,43 +6170,43 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@tanstack/query-core@5.17.1:
-    resolution: {integrity: sha512-kUXozQmU7NBtzX5dM6qfFNZN+YK/9Ct37hnG/ogdgI4mExIx7VH/qRepsPhKfNrJz2w81/JykmM3Uug6sVpUSw==}
+  /@tanstack/query-core@5.24.1:
+    resolution: {integrity: sha512-DZ6Nx9p7BhjkG50ayJ+MKPgff+lMeol7QYXkvuU5jr2ryW/4ok5eanaS9W5eooA4xN0A/GPHdLGOZGzArgf5Cg==}
     dev: false
 
   /@tanstack/query-devtools@5.17.1:
     resolution: {integrity: sha512-gNdt6PYzYlyjtSAoO8Jt9GIFq5VSLLDV2qq0TCi1t/PGnpAIlIHqNZGYkQTPsy0FyGUTX3pCq4bd7v5z/wzf3A==}
     dev: false
 
-  /@tanstack/react-query-devtools@5.17.1(@tanstack/react-query@5.17.1)(react@18.2.0):
+  /@tanstack/react-query-devtools@5.17.1(@tanstack/react-query@5.24.1)(react@18.2.0):
     resolution: {integrity: sha512-QWHqdEN2TJpj76r0yzdOJEopmPvdAHOJHAKXaygubRASqCqfcWGkOHGD9pqqHOfTu5eQdV1Csx97EuSjnHMKcA==}
     peerDependencies:
       '@tanstack/react-query': ^5.17.1
       react: ^18.0.0
     dependencies:
       '@tanstack/query-devtools': 5.17.1
-      '@tanstack/react-query': 5.17.1(react@18.2.0)
+      '@tanstack/react-query': 5.24.1(react@18.2.0)
       react: 18.2.0
     dev: false
 
-  /@tanstack/react-query-next-experimental@5.17.1(@tanstack/react-query@5.17.1)(next@14.0.4)(react@18.2.0):
+  /@tanstack/react-query-next-experimental@5.17.1(@tanstack/react-query@5.24.1)(next@14.0.4)(react@18.2.0):
     resolution: {integrity: sha512-2KtiweIo/hUU3vGNMdroiqEUSGCQ4l/85mRn6ymWef3BJZCZosIL/hz8x7r2+ujeY9ir+1HYcSmD01onrfijsg==}
     peerDependencies:
       '@tanstack/react-query': ^5.17.1
       next: ^13 || ^14
       react: ^18.0.0
     dependencies:
-      '@tanstack/react-query': 5.17.1(react@18.2.0)
+      '@tanstack/react-query': 5.24.1(react@18.2.0)
       next: 14.0.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
-  /@tanstack/react-query@5.17.1(react@18.2.0):
-    resolution: {integrity: sha512-4JYgX0kU+pvwVQi5eRiHGvBK7WnahEl6lmaxd32ZVSKmByAxLgaewoxBR03cdDNse8lUD2zGOe0sx3M/EGRlmA==}
+  /@tanstack/react-query@5.24.1(react@18.2.0):
+    resolution: {integrity: sha512-4+09JEdO4d6+Gc8Y/g2M/MuxDK5IY0QV8+2wL2304wPKJgJ54cBbULd3nciJ5uvh/as8rrxx6s0mtIwpRuGd1g==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
-      '@tanstack/query-core': 5.17.1
+      '@tanstack/query-core': 5.24.1
       react: 18.2.0
     dev: false
 
@@ -6943,7 +6943,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.7)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 4.5.1(@types/node@20.10.6)
+      vite: 4.5.1(@types/node@18.19.4)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -12356,7 +12356,7 @@ packages:
       groq: 3.23.4
       next: 14.0.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      sanity: 3.23.4(@types/node@20.10.6)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
+      sanity: 3.23.4(@types/node@18.19.4)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
       styled-components: 6.1.6(react-dom@18.2.0)(react@18.2.0)
     dev: false
 

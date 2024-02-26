@@ -16,7 +16,7 @@
     "@sanity/preview-kit": "^5.0.7",
     "@sanity/preview-url-secret": "^1.4.1",
     "@sanity/webhook": "^4.0.0",
-    "@tanstack/react-query": "^5.15.0",
+    "@tanstack/react-query": "^5.24.1",
     "@tanstack/react-query-devtools": "^5.17.1",
     "@tanstack/react-query-next-experimental": "^5.15.0",
     "@vercel/analytics": "^1.1.1",
