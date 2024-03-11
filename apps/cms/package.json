@@ -19,7 +19,7 @@
     "@sanity/dashboard": "^3.1.6",
     "@sanity/icons": "^2.8.0",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/orderable-document-list": "^1.1.0",
+    "@sanity/orderable-document-list": "^1.2.1",
     "@sanity/ui": "^1.9.3",
     "@sanity/vision": "3.23.4",
     "get-youtube-id": "^1.0.1",
