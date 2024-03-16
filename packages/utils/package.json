@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "dependencies": {
-    "nanoid": "^5.0.4",
+    "nanoid": "^5.0.6",
     "slugify": "^1.6.6",
     "tsconfig": "2.0.0"
   }

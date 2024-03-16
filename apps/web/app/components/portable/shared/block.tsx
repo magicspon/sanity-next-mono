@@ -21,7 +21,9 @@ export const createBlock = ({ variant }: style.Variant) => {
         id={createIdFromChildren(children)}
         level={2}
         intent="h2"
-        className={style.heading2({ variant })}
+        className={style.heading2({
+          variant,
+        })}
       >
         {children}
       </Heading>

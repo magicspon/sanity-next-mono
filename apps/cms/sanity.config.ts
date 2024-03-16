@@ -1,5 +1,5 @@
 import { DocumentDefinition, defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
 import {
   dashboardTool,
   projectUsersWidget,
@@ -42,7 +42,7 @@ const config = defineConfig({
       widgets: [projectUsersWidget(), projectInfoWidget()],
     }),
 
-    deskTool({
+    structureTool({
       structure: (S) => {
         const makeSingle = (schema: DocumentDefinition) =>
           S.listItem()
