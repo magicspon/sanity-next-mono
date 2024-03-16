@@ -1,7 +1,7 @@
 {
   "name": "cms",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
@@ -38,7 +38,7 @@
     "sanity-plugin-webhooks": "^1.0.0",
     "sanity-plugin-workflow": "^1.0.2",
     "styled-components": "^6.1.6",
-    "utils": "1.0.0",
+    "utils": "1.0.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -46,7 +46,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "eslint-config-custom": "*",
-    "tsconfig": "1.0.0",
+    "tsconfig": "1.0.1",
     "typescript": "^5.3.3"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
@@ -30,8 +30,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "^7.6.5",
-    "tailwind-config": "1.0.0",
-    "tsconfig": "1.0.0",
+    "tailwind-config": "1.0.1",
+    "tsconfig": "1.0.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
