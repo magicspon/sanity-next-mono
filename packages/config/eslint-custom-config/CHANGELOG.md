@@ -4,7 +4,6 @@
 
 ### Major Changes
 
-- Bump
 - 650282d: Update dependencies, fix pnpm workspace settings, linting and type errors"
 
 ## 1.0.1
