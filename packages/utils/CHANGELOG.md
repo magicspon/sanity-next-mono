@@ -1,5 +1,16 @@
 # utils
 
+## 3.0.0
+
+### Major Changes
+
+- ce089ad: Update to latest dependencies
+
+### Patch Changes
+
+- Updated dependencies [ce089ad]
+  - tsconfig@3.0.0
+
 ## 2.0.0
 
 ### Major Changes
