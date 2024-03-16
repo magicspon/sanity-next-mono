@@ -1,5 +1,16 @@
 # utils
 
+## 2.0.0
+
+### Major Changes
+
+- 650282d: Update dependencies, fix pnpm workspace settings, linting and type errors"
+
+### Patch Changes
+
+- Updated dependencies [650282d]
+  - tsconfig@2.0.0
+
 ## 1.0.1
 
 ### Patch Changes
