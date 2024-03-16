@@ -30,7 +30,7 @@ importers:
         specifier: 8.56.0
         version: 8.56.0
       eslint-config-custom:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:packages/config/eslint-custom-config
       husky:
         specifier: ^8.0.3
@@ -45,7 +45,7 @@ importers:
         specifier: ^3.2.5
         version: 3.2.5
       tsconfig:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:packages/config/tsconfig
       turbo:
         specifier: ^1.12.5
@@ -141,7 +141,7 @@ importers:
         specifier: ^6.1.6
         version: 6.1.6(react-dom@18.2.0)(react@18.2.0)
       utils:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/utils
       zod:
         specifier: ^3.22.4
@@ -157,10 +157,10 @@ importers:
         specifier: ^18.2.18
         version: 18.2.18
       eslint-config-custom:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/config/eslint-custom-config
       tsconfig:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/config/tsconfig
       typescript:
         specifier: ^5.3.3
@@ -208,7 +208,7 @@ importers:
         specifier: ^2.0.0
         version: 2.1.0
       cms:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../cms
       framer-motion:
         specifier: ^10.16.16
@@ -235,16 +235,16 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(react-hook-form@7.49.2)(react@18.2.0)
       tailwind-config:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/config/tailwind
       ui:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/ui
       usehooks-ts:
         specifier: ^2.9.1
         version: 2.9.1(react-dom@18.2.0)(react@18.2.0)
       utils:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/utils
       zod:
         specifier: ^3.22.4
@@ -269,7 +269,7 @@ importers:
         specifier: ^10.4.15
         version: 10.4.16(postcss@8.4.32)
       eslint-config-custom:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/config/eslint-custom-config
       postcss:
         specifier: ^8.4.32
@@ -278,7 +278,7 @@ importers:
         specifier: ^3.3.7
         version: 3.4.0
       tsconfig:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../../packages/config/tsconfig
       typescript:
         specifier: ^5.3.3
@@ -345,7 +345,7 @@ importers:
         specifier: ^3.3.7
         version: 3.4.0
       tsconfig:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../tsconfig
 
   packages/config/tsconfig: {}
@@ -465,7 +465,7 @@ importers:
         specifier: ^18.2.18
         version: 18.2.18
       eslint-config-custom:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../config/eslint-custom-config
       eslint-plugin-storybook:
         specifier: ^0.6.15
@@ -480,10 +480,10 @@ importers:
         specifier: ^7.6.5
         version: 7.6.7
       tailwind-config:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../config/tailwind
       tsconfig:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../config/tsconfig
       typescript:
         specifier: ^5.3.3
@@ -498,7 +498,7 @@ importers:
         specifier: ^1.6.6
         version: 1.6.6
       tsconfig:
-        specifier: 1.0.1
+        specifier: 2.0.0
         version: link:../config/tsconfig
 
 packages:
