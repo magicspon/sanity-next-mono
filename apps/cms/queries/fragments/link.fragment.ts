@@ -16,9 +16,9 @@ const _link = {
           .select({
             "parent != 'null'": {
               slug: _slug.slug,
-              parent: q('parent').deref().select({
-                default: _slug,
-              }),
+              // parent: q('parent').deref().select({
+              //   default: _slug,
+              // }),
             },
             default: _slug,
           }),

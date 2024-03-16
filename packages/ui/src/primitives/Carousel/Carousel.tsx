@@ -1,10 +1,14 @@
 import * as React from 'react'
+
 import useEmblaCarousel, {
-  EmblaOptionsType,
-  EmblaCarouselType,
-  EmblaPluginType,
+  type UseEmblaCarouselType,
 } from 'embla-carousel-react'
 import { Flex } from '../Flex'
+
+type EmblaCarouselType = UseEmblaCarouselType[1]
+type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
+type EmblaOptionsType = UseCarouselParameters[0]
+type EmblaPluginType = UseCarouselParameters[1]
 
 /***
  * <Carousel.Root
@@ -62,10 +66,12 @@ export const useDotButton = (
   )
 
   const onInit = React.useCallback((emblaApi: EmblaCarouselType) => {
+    if (!emblaApi) return
     setScrollSnaps(emblaApi.scrollSnapList())
   }, [])
 
   const onSelect = React.useCallback((emblaApi: EmblaCarouselType) => {
+    if (!emblaApi) return
     setSelectedIndex(emblaApi.selectedScrollSnap())
   }, [])
 
@@ -114,6 +120,7 @@ export const usePrevNextButtons = (
   }, [emblaApi, onButtonClick])
 
   const onSelect = React.useCallback((emblaApi: EmblaCarouselType) => {
+    if (!emblaApi) return
     setPrevBtnDisabled(!emblaApi.canScrollPrev())
     setNextBtnDisabled(!emblaApi.canScrollNext())
   }, [])
@@ -136,7 +143,7 @@ export const usePrevNextButtons = (
 
 export type TCarouselProps = {
   options?: EmblaOptionsType
-  plugins?: EmblaPluginType[]
+  plugins?: EmblaPluginType
   children: React.ReactNode
 }
 

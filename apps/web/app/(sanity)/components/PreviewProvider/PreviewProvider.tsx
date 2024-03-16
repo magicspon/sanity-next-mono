@@ -16,7 +16,13 @@ export function PreviewProvider({
   // const { client } = suspend(() => import('cms/lib/client'), [UniqueKey])
   if (!token) throw new TypeError('Missing token')
   return (
-    <LiveQueryProvider client={client} token={token} logger={console}>
+    <LiveQueryProvider
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore this is fine... honest
+      client={client}
+      token={token}
+      logger={console}
+    >
       {children}
     </LiveQueryProvider>
   )

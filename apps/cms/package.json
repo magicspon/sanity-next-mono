@@ -45,7 +45,7 @@
     "@sanity/eslint-config-studio": "^3.0.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "eslint-config-custom": "*",
+    "eslint-config-custom": "1.0.1",
     "tsconfig": "1.0.1",
     "typescript": "^5.3.3"
   }

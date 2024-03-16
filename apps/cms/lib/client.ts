@@ -1,5 +1,6 @@
 import { createClient } from 'next-sanity'
 import { PROJECT_ID } from './env'
+export type { SanityClient } from '@sanity/client'
 
 export const client = createClient({
   projectId: PROJECT_ID,

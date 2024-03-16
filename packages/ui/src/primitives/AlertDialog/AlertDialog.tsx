@@ -8,11 +8,8 @@ export const Root = RadixAlert.Root
 
 export const Trigger = RadixAlert.Trigger
 
-export function Portal({
-  className,
-  ...props
-}: RadixAlert.AlertDialogPortalProps) {
-  return <RadixAlert.Portal className={clsx(className)} {...props} />
+export function Portal({ ...props }: RadixAlert.AlertDialogPortalProps) {
+  return <RadixAlert.Portal {...props} />
 }
 
 export const Overlay = React.forwardRef<
