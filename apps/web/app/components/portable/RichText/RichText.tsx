@@ -5,12 +5,12 @@ import { Link } from '../marks/Link'
 // import { Text } from 'ui/src/primitives/Text'
 // import { Heading } from 'ui/src/primitives/Heading'
 // import { createIdFromChildren } from '~utils/createIdFromChildren'
-import { RichText } from 'cms/queries/fragments/portable.fragment'
+import { TRichText } from 'cms/queries/fragments/portable.fragment'
 import * as style from '../shared/variants'
 import { createBlock } from '../shared/block'
 
 export type BlockProps = {
-  block: RichText
+  block: TRichText
 } & style.Variant
 
 export function RichText({ block, variant }: BlockProps) {

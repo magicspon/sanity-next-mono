@@ -32,7 +32,7 @@ export const richText = q('body').filter().select({
   "_type == 'links'": linksSelection,
 })
 
-export type RichText = InferType<typeof richText>
+export type TRichText = InferType<typeof richText>
 
 const blocks = {
   _type: q.literal('blocks'),

@@ -20,6 +20,7 @@ pnpm dev
 - Prettier
 - Commitlint
 - Lintstaged
+- Changesets
 - Github Actions
 
 ## About
