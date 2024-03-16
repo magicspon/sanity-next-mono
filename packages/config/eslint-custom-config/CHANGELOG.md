@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 3.0.0
+
+### Major Changes
+
+- ce089ad: Update to latest dependencies
+
 ## 2.0.0
 
 ### Major Changes
