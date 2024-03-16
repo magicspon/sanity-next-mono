@@ -38,7 +38,7 @@
     "@total-typescript/ts-reset": "^0.5.1",
     "commitlint": "^18.6.1",
     "eslint": "8.56.0",
-    "eslint-config-custom": "1.0.0",
+    "eslint-config-custom": "1.0.1",
     "husky": "^8.0.3",
     "hygen": "^6.2.11",
     "lint-staged": "^15.2.2",
