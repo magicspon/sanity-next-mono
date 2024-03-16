@@ -17,9 +17,26 @@ export type BlockProps = {
 } & style.Variant
 
 export function Block({ block, variant }: BlockProps) {
-  console.log('[HELLO]')
   return (
-    <div className="grid grid-cols-site grid-flow-col-dense">
+    <div className="grid grid-cols-site grid-flow-row">
+      <div className="col-span-5 bg-blue-500 grid grid-cols-[subgrid]">
+        <div className="col-start-4 col-span-2 grid content-center p-5 border-4 border-black">
+          testing
+        </div>
+      </div>
+      <div className="col-span-5 bg-pink-600">
+        <div className="h-56"></div>
+      </div>
+
+      <div className="col-span-5">
+        <div className="h-56"></div>
+      </div>
+      <div className="col-span-5 grid grid-cols-[subgrid]">
+        <div className="col-start-1 bg-blue-300 col-span-5 grid grid-cols-[subgrid]">
+          <div className="col-span-2 p-5 border-4 border-black">hello</div>
+        </div>
+      </div>
+
       <PortableText
         value={block as PortableTextProps['value']}
         components={{

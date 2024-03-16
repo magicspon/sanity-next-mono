@@ -31,6 +31,7 @@
     "build-storybook": "turbo run build-storybook --filter=ui"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@manypkg/cli": "^0.21.1",

@@ -6,42 +6,52 @@ export const shadcnPlugin = plugin(
     addBase({
       ':root': {
         '--max-width': '1200px',
+        '--count': '4',
         '--gap': 'clamp(1rem, 1vw, 3rem)',
         '--full': 'minmax(var(--gap), 1fr)',
         '--popout': 'minmax(0, 1rem)',
         '--feature': 'minmax(0, 2rem)',
-        '--columns': 'repeat(4, minmax(auto, 300px))',
+        '--columns':
+          'repeat(var(--count), minmax(auto, calc(var(--max-width) / var(--count))))',
+      },
+    })
 
-        '--background': '0 0% 100%',
-        '--foreground': '240 10% 3.9%',
-        '--card': '0 0% 100%',
-        '--card-foreground': '240 10% 3.9%',
-        '--popover': '0 0% 100%',
-        '--popover-foreground': '240 10% 3.9%',
-        '--primary': '346.8 77.2% 49.8%',
-        '--primary-foreground': '355.7 100% 97.3%',
-        '--secondary': '240 4.8% 95.9%',
-        '--secondary-foreground': '240 5.9% 10%',
-        '--muted': '240 4.8% 95.9%',
-        '--muted-foreground': '240 3.8% 46.1%',
-        '--accent': '240 4.8% 95.9%',
-        '--accent-foreground': '240 5.9% 10%',
-        '--destructive': '0 84.2% 60.2%',
-        '--destructive-foreground': '0 0% 98%',
-        '--border': '240 5.9% 90%',
-        '--input': '240 5.9% 90%',
-        '--ring': '346.8 77.2% 49.8%',
+    const white = '0 0% 100%' // #fff
+    const dark = '240 10% 3.9%' // #09090b
+    const primary = '346.8 77.2% 49.8%'
+
+    addBase({
+      ':root': {
+        '--background': white, // #fff
+        '--foreground': dark, // #09090b
+        '--card': white, // #fff
+        '--card-foreground': dark, // #09090b
+        '--popover': white, // #fff
+        '--popover-foreground': dark, // #09090b
+        '--primary': primary, // #e11d48
+        '--primary-foreground': '355.7 100% 97.3%', // #fff1f2
+        '--secondary': '240 4.8% 95.9%', // #f4f4f5
+        '--secondary-foreground': '240 5.9% 10%', // #18181b
+        '--muted': '240 4.8% 95.9%', // #f4f4f5
+        '--muted-foreground': '240 3.8% 46.1%', // #71717a
+        '--accent': '240 4.8% 95.9%', // #f4f4f5
+        '--accent-foreground': '240 5.9% 10%', // #18181b
+        '--destructive': '0 84.2% 60.2%', // #ef4444
+        '--destructive-foreground': '0 0% 98%', // 0 0% 98%
+        '--border': '240 5.9% 90%', // #e4e4e7
+        '--input': '240 5.9% 90%', // #e4e4e7
+        '--ring': primary, // #e11d48
         '--radius': 'rem',
       },
-      '.dark': {
+      '.purple': {
         '--background': '20 14.3% 4.1%',
         '--foreground': '0 0% 95%',
         '--card': '24 9.8% 10%',
         '--card-foreground': '0 0% 95%',
         '--popover': '0 0% 9%',
         '--popover-foreground': '0 0% 95%',
-        '--primary': '346.8 77.2% 49.8%',
-        '--primary-foreground': '355.7 100% 97.3%',
+        '--primary': primary, // #e11d48
+        '--primary-foreground': '355.7 100% 97.3%', // #fff1f2
         '--secondary': '240 3.7% 15.9%',
         '--secondary-foreground': '0 0% 98%',
         '--muted': '0 0% 15%',
@@ -52,7 +62,7 @@ export const shadcnPlugin = plugin(
         '--destructive-foreground': '0 85.7% 97.3%',
         '--border': '240 3.7% 15.9%',
         '--input': '240 3.7% 15.9%',
-        '--ring': '346.8 77.2% 49.8%',
+        '--ring': primary, // #e11d48
       },
     })
   },
@@ -78,10 +88,7 @@ export const shadcnPlugin = plugin(
           ring: 'hsl(var(--ring))',
           background: 'hsl(var(--background))',
           foreground: 'hsl(var(--foreground))',
-          brand: {
-            DEFAULT: 'hsl(var(--brand))',
-            foreground: 'hsl(var(--brand-foreground))',
-          },
+
           alt: {
             DEFAULT: 'hsl(var(--alt))',
             foreground: 'hsl(var(--alt-foreground))',
@@ -113,14 +120,6 @@ export const shadcnPlugin = plugin(
           card: {
             DEFAULT: 'hsl(var(--card))',
             foreground: 'hsl(var(--card-foreground))',
-          },
-          warning: {
-            DEFAULT: 'hsl(var(--warning))',
-            foreground: 'hsl(var(--warning-foreground))',
-          },
-          error: {
-            DEFAULT: 'hsl(var(--error))',
-            foreground: 'hsl(var(--error-foreground))',
           },
         },
         borderRadius: {

@@ -14,10 +14,10 @@ const right = 'col-start-2'
 
 export function StackBlocks({ cards }: PortableBlocks) {
   return (
-    <>
+    <div className="col-[content] grid gap-8">
       {cards?.map((card) => (
         <div
-          className="col-[content] grid grid-cols-2 grid-flow-col-dense"
+          className="flex flex-col gap-8 lg:gap-0 lg:grid grid-cols-2 grid-flow-col-dense"
           key={card._key}
         >
           {card.image && (
@@ -27,7 +27,7 @@ export function StackBlocks({ cards }: PortableBlocks) {
           )}
           <Stack
             className={clsx(
-              card.flip ? [right, 'pl-12'] : [left, 'pr-12'],
+              card.flip ? [right, 'lg:pl-12'] : [left, 'lg:pr-12'],
               'self-center',
             )}
           >
@@ -36,6 +36,6 @@ export function StackBlocks({ cards }: PortableBlocks) {
           </Stack>
         </div>
       ))}
-    </>
+    </div>
   )
 }

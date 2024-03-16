@@ -23,7 +23,7 @@ export default {
                     [content-end]
                   var(--popout) [popout-end]
                 var(--feature) [feature-end]
-               var(--full) [full-end]`,
+                var(--full) [full-end]`,
       },
     },
   },
