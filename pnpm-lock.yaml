@@ -334,9 +334,6 @@ importers:
       '@themosaad/tailwindcss-capsize':
         specifier: ^1.0.0
         version: 1.0.0
-      fluid-tailwind:
-        specifier: ^0.1.6
-        version: 0.1.6(tailwindcss@3.4.1)
       tailwindcss-animate:
         specifier: ^1.0.6
         version: 1.0.7(tailwindcss@3.4.1)
@@ -11764,11 +11761,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /filter-obj@5.1.0:
-    resolution: {integrity: sha512-qWeTREPoT7I0bifpPUXtxkZJ1XJzxWtfoWWkdVGqa+eCr3SHW/Ocp89o8vLvbUuQnadybJpjOKu4V+RwO6sGng==}
-    engines: {node: '>=14.16'}
-    dev: false
-
   /finalhandler@1.2.0:
     resolution: {integrity: sha512-5uXcUVftlQMFnWC9qu/svkWv3GTd2PfUhK/3PLkYNAe7FbqJMt3515HaxE6eRL74GdsriiwujiawdaB1BpEISg==}
     engines: {node: '>= 0.8'}
@@ -11874,20 +11866,6 @@ packages:
     resolution: {integrity: sha512-WVzuqwq7ZnvBceCG0DGeTQebZE+iIU0mlk5PmJgYj9DDrt+0isGC2m1ezW9vxL4V+HERJJo9ExppOnwKH2op6Q==}
     engines: {node: '>=0.4.0'}
     dev: true
-
-  /fluid-tailwind@0.1.6(tailwindcss@3.4.1):
-    resolution: {integrity: sha512-Utmkyljta6Yg6UwEpodXopI5UI/fbcSBYoZnIs5AJ09ndouf8wgLu3wWf8roMPgvfF/dzVAQfUKIbNyO6Vxf5A==}
-    peerDependencies:
-      tailwindcss: ^3.2.0
-    dependencies:
-      filter-obj: 5.1.0
-      map-obj: 5.0.2
-      picocolors: 1.0.0
-      tailwindcss: 3.4.1
-      tailwindcss-priv: /tailwindcss@3.4.1
-    transitivePeerDependencies:
-      - ts-node
-    dev: false
 
   /flush-write-stream@2.0.0:
     resolution: {integrity: sha512-uXClqPxT4xW0lcdSBheb2ObVU+kuqUk3Jk64EwieirEXZx9XUrVwp/JuBfKAWaM4T5Td/VL7QLDWPXp/MvGm/g==}
@@ -13958,11 +13936,6 @@ packages:
   /map-obj@4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
-    dev: false
-
-  /map-obj@5.0.2:
-    resolution: {integrity: sha512-K6K2NgKnTXimT3779/4KxSvobxOtMmx1LBZ3NwRxT/MDIR3Br/fQ4Q+WCX5QxjyUR8zg5+RV9Tbf2c5pAWTD2A==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: false
 
   /map-or-similar@1.5.0:
