@@ -46,7 +46,7 @@ importers:
         version: 3.1.1
       tsconfig:
         specifier: '*'
-        version: 7.0.0
+        version: link:packages/config/tsconfig
       turbo:
         specifier: ^1.11.2
         version: 1.11.2
@@ -141,7 +141,7 @@ importers:
         specifier: ^6.1.6
         version: 6.1.6(react-dom@18.2.0)(react@18.2.0)
       utils:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../../packages/utils
       zod:
         specifier: ^3.22.4
@@ -160,7 +160,7 @@ importers:
         specifier: '*'
         version: link:../../packages/config/eslint-custom-config
       tsconfig:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../../packages/config/tsconfig
       typescript:
         specifier: ^5.3.3
@@ -208,7 +208,7 @@ importers:
         specifier: ^2.0.0
         version: 2.1.0
       cms:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../cms
       framer-motion:
         specifier: ^10.16.16
@@ -235,16 +235,16 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(react-hook-form@7.49.2)(react@18.2.0)
       tailwind-config:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../../packages/config/tailwind
       ui:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../../packages/ui
       usehooks-ts:
         specifier: ^2.9.1
         version: 2.9.1(react-dom@18.2.0)(react@18.2.0)
       utils:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../../packages/utils
       zod:
         specifier: ^3.22.4
@@ -278,7 +278,7 @@ importers:
         specifier: ^3.3.7
         version: 3.4.0
       tsconfig:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../../packages/config/tsconfig
       typescript:
         specifier: ^5.3.3
@@ -345,7 +345,7 @@ importers:
         specifier: ^3.3.7
         version: 3.4.0
       tsconfig:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../tsconfig
 
   packages/config/tsconfig: {}
@@ -480,10 +480,10 @@ importers:
         specifier: ^7.6.5
         version: 7.6.7
       tailwind-config:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../config/tailwind
       tsconfig:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../config/tsconfig
       typescript:
         specifier: ^5.3.3
@@ -498,7 +498,7 @@ importers:
         specifier: ^1.6.6
         version: 1.6.6
       tsconfig:
-        specifier: 0.0.0
+        specifier: 1.0.0
         version: link:../config/tsconfig
 
 packages:
@@ -6820,14 +6820,6 @@ packages:
 
   /@types/speakingurl@13.0.6:
     resolution: {integrity: sha512-ywkRHNHBwq0mFs/2HRgW6TEBAzH66G8f2Txzh1aGR0UC9ZoAUHfHxLZGDhwMpck4BpSnB61eNFIFmlV+TJ+KUA==}
-    dev: false
-
-  /@types/strip-bom@3.0.0:
-    resolution: {integrity: sha512-xevGOReSYGM7g/kUBZzPqCrR/KYAo+F0yiPc85WFTJa0MSLtyFTVTU6cJu/aV4mid7IffDIWqo69THF2o4JiEQ==}
-    dev: false
-
-  /@types/strip-json-comments@0.0.30:
-    resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
     dev: false
 
   /@types/styled-components@5.1.34:
@@ -16456,15 +16448,6 @@ packages:
       minimist: 1.2.8
       strip-bom: 3.0.0
     dev: true
-
-  /tsconfig@7.0.0:
-    resolution: {integrity: sha512-vZXmzPrL+EmC4T/4rVlT2jNVMWCi/O4DIiSj3UHg1OE5kCKbk4mfrXc6dZksLgRM/TZlKnousKH9bbTazUWRRw==}
-    dependencies:
-      '@types/strip-bom': 3.0.0
-      '@types/strip-json-comments': 0.0.30
-      strip-bom: 3.0.0
-      strip-json-comments: 2.0.1
-    dev: false
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
