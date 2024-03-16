@@ -1,5 +1,19 @@
 # web
 
+## 2.0.0
+
+### Major Changes
+
+- 650282d: Update dependencies, fix pnpm workspace settings, linting and type errors"
+
+### Patch Changes
+
+- Updated dependencies [650282d]
+  - tailwind-config@2.0.0
+  - utils@2.0.0
+  - ui@2.0.0
+  - cms@2.0.0
+
 ## 1.0.1
 
 ### Patch Changes
