@@ -12,7 +12,7 @@
     "@capsizecss/core": "^4.1.0",
     "@capsizecss/metrics": "^2.2.0",
     "@hookform/resolvers": "^3.3.4",
-    "@portabletext/react": "^3.0.11",
+    "@portabletext/react": "^3.0.15",
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/preview-kit": "^5.0.33",
     "@sanity/preview-url-secret": "^1.6.4",

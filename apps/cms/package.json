@@ -12,7 +12,7 @@
   "dependencies": {
     "@focus-reactive/sanity-plugin-inline-svg-input": "^1.0.1",
     "@mobily/ts-belt": "^3.13.1",
-    "@portabletext/react": "^3.0.11",
+    "@portabletext/react": "^3.0.15",
     "@q42/sanity-plugin-page-tree": "^1.1.1",
     "@sanity/client": "^6.15.5",
     "@sanity/color-input": "^3.1.1",
