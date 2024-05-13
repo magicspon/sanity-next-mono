@@ -56,6 +56,6 @@
     "cmdk": "^1.0.0",
     "embla-carousel-react": "^8.0.0",
     "framer-motion": "^11.0.14",
-    "react-remove-scroll": "^2.5.7"
+    "react-remove-scroll": "^2.5.10"
   }
 }
