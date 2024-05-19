@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "tsc --pretty --noEmit --project tsconfig.json && TIMING=1 eslint \"./**/*.{js,ts,tsx}\" --fix --quiet",
-    "dev": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
@@ -21,7 +21,7 @@
     "@storybook/nextjs": "^8.1.1",
     "@storybook/react": "^8.1.1",
     "@storybook/react-webpack5": "^8.1.1",
-    "@storybook/testing-library": "^0.2.2",
+    "@testing-library/react": "^15.0.7",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
@@ -51,7 +51,6 @@
     "@radix-ui/react-toast": "^1.1.5",
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-toggle-group": "^1.0.4",
-    "@testing-library/react-hooks": "^8.0.1",
     "@vitejs/plugin-react": "^4.2.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

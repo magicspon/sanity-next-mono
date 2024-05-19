@@ -1,21 +1,20 @@
+import Color from 'utils/color'
 import plugin from 'tailwindcss/plugin'
+
+const hsl = (hex: string) => {
+  const [h, s, l] = new Color(hex)
+    .to('hsl')
+    .coords.map((v) => (isNaN(v) ? 0 : Number(v.toFixed(2))))
+
+  return `${h} ${s}% ${l}%`
+}
+
+const pxToRem = (value: number) => {
+  return `${value / 16}rem`
+}
 
 export const shadcnPlugin = plugin(
   ({ addBase }) => {
-    // colours
-    addBase({
-      ':root': {
-        '--max-width': '1200px',
-        '--count': '4',
-        '--gap': 'clamp(1rem, 1vw, 3rem)',
-        '--full': 'minmax(var(--gap), 1fr)',
-        '--popout': 'minmax(0, 1rem)',
-        '--feature': 'minmax(0, 2rem)',
-        '--columns':
-          'repeat(var(--count), minmax(auto, calc(var(--max-width) / var(--count))))',
-      },
-    })
-
     const white = '0 0% 100%' // #fff
     const dark = '240 10% 3.9%' // #09090b
     const primary = '346.8 77.2% 49.8%'
@@ -43,38 +42,10 @@ export const shadcnPlugin = plugin(
         '--ring': primary, // #e11d48
         '--radius': 'rem',
       },
-      '.purple': {
-        '--background': '20 14.3% 4.1%',
-        '--foreground': '0 0% 95%',
-        '--card': '24 9.8% 10%',
-        '--card-foreground': '0 0% 95%',
-        '--popover': '0 0% 9%',
-        '--popover-foreground': '0 0% 95%',
-        '--primary': primary, // #e11d48
-        '--primary-foreground': '355.7 100% 97.3%', // #fff1f2
-        '--secondary': '240 3.7% 15.9%',
-        '--secondary-foreground': '0 0% 98%',
-        '--muted': '0 0% 15%',
-        '--muted-foreground': '240 5% 64.9%',
-        '--accent': '12 6.5% 15.1%',
-        '--accent-foreground': '0 0% 98%',
-        '--destructive': '0 62.8% 30.6%',
-        '--destructive-foreground': '0 85.7% 97.3%',
-        '--border': '240 3.7% 15.9%',
-        '--input': '240 3.7% 15.9%',
-        '--ring': primary, // #e11d48
-      },
     })
   },
   {
     theme: {
-      container: {
-        center: true,
-        padding: '2rem',
-        screens: {
-          '2xl': '1400px',
-        },
-      },
       extend: {
         colors: {
           border: {

@@ -23,6 +23,7 @@ export default async function RootLayout({
       <ConditionalPreviewProvider>
         <main>{children}</main>
       </ConditionalPreviewProvider>
+      <footer>...</footer>
     </Providers>
   )
 }

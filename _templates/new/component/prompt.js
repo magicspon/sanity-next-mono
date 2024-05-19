@@ -34,22 +34,20 @@ module.exports = {
         message: 'Package',
         choices: ['componenets', 'primitives'],
       })
-      dir = `/src/${result.uiDir}`
-      result = await prompter.prompt({
+      const result2 = await prompter.prompt({
         type: 'confirm',
         name: 'storybook',
         message: 'Do you want to include a story:',
       })
-
-      storybook = result.storybook
-
-      result = await prompter.prompt({
+      const result3 = await prompter.prompt({
         type: 'confirm',
         name: 'variants',
         message: 'Do you want to use a variants:',
       })
 
-      variants = result.variants
+      dir = `/src/${result.uiDir}`
+      storybook = result2.storybook
+      variants = result3.variants
     }
 
     const { forwardRef } = await prompter.prompt({

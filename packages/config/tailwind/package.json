@@ -21,6 +21,7 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.13",
     "@themosaad/tailwindcss-capsize": "^1.0.0",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "utils": "3.0.0"
   }
 }

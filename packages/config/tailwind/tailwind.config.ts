@@ -1,7 +1,7 @@
 // import fontMetrics from '@capsizecss/metrics/roboto'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 import type { Config } from 'tailwindcss'
-import typography from '@tailwindcss/typography'
+// import typography from '@tailwindcss/typography'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore meh
 import capsize from '@themosaad/tailwindcss-capsize'
@@ -68,7 +68,6 @@ const config = {
       backgroundImage: {
         chevron: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
       },
-
       boxShadow: {
         '2xs': '0px 1px 2px 0px rgb(0 0 0 / 0.05)',
         xs: '0px 1px 2px 0px rgb(0 0 0 / 0.06), 0px 1px 3px 0px rgb(0 0 0 / 0.1)',
@@ -106,9 +105,6 @@ const config = {
         '7xl': ['4.5rem', { lineHeight: '1' }],
         '8xl': ['6rem', { lineHeight: '1' }],
         '9xl': ['8rem', { lineHeight: '1' }],
-      },
-      gridTemplateRows: {
-        sub: 'subgrid',
       },
       keyframes: {
         expand: {
@@ -179,7 +175,7 @@ const config = {
   },
   plugins: [
     containerQueries,
-    typography,
+    // typography,
     capsize,
     animate,
     shadcnPlugin,
