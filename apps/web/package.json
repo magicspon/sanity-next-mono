@@ -21,7 +21,6 @@
     "@tanstack/react-query-devtools": "^5.37.1",
     "@tanstack/react-query-next-experimental": "^5.37.1",
     "@testing-library/react": "^15.0.7",
-    "@testing-library/react-hooks": "^8.0.1",
     "@vercel/analytics": "^1.2.2",
     "@vitejs/plugin-react": "^4.2.1",
     "class-variance-authority": "^0.7.0",
