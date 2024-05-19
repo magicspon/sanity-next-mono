@@ -1,0 +1,26 @@
+name: Units Tests
+on:
+  pull_request:
+    paths:
+      - apps/**
+      - packages/**
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      # Throw an error if the yarn.lock file doesn't match the installed dependencies (rather than updating it in-place, which it does by default locally)
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Lint
+        run: pnpm test:run
