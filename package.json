@@ -31,7 +31,7 @@
     "prepare": "husky install",
     "storybook": "turbo run storybook --filter=ui",
     "build-storybook": "turbo run build-storybook --filter=ui",
-    "version": "pnpm changesets version; pnpm i"
+    "version": "pnpm changeset version; pnpm i"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.2",
