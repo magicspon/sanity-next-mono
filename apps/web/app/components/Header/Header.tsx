@@ -1,8 +1,8 @@
 import { GlobalQuery } from 'cms/queries/pages/global.query'
 import Link from 'next/link'
 import * as React from 'react'
-import { NavLink } from '~components/NavLink'
-import { TLinkRef } from '~utils/unwrapLinkTree'
+import { NavLink } from '~/components/NavLink'
+import { TLinkRef } from '~/utils/unwrapLinkTree'
 
 export interface THeaderProps {
   items?: GlobalQuery['mainMenu'][number]['items']

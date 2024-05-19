@@ -85,7 +85,8 @@ export const richTextLink = defineField({
       to: pageTreeConfig.pageSchemaTypes.map((d) => ({ type: d })),
       hidden: ({ parent }) => parent?.type !== 'internal',
       components: {
-        field: (props) => PageTreeField({ ...props, config: pageTreeConfig }),
+        field: (props: any) =>
+          PageTreeField({ ...props, config: pageTreeConfig }),
       },
     }),
   ],
@@ -169,7 +170,8 @@ export const linkField = (
         to: pageTreeConfig.pageSchemaTypes.map((d) => ({ type: d })),
         hidden: ({ parent }) => parent?.type !== 'internal',
         components: {
-          field: (props) => PageTreeField({ ...props, config: pageTreeConfig }),
+          field: (props: any) =>
+            PageTreeField({ ...props, config: pageTreeConfig }),
         },
         validation: (Rule) =>
           Rule.custom((value, context) => {

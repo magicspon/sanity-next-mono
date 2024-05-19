@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { PortableImages } from 'cms/queries/fragments/portable.fragment'
 import Image from 'next/image'
 import * as React from 'react'
-import { imageProps } from '~utils/imageProps'
+import { imageProps } from '~/utils/imageProps'
 
 export interface TImagesProps {}
 

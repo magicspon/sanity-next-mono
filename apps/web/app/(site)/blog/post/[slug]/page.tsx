@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { LiveQuery } from 'next-sanity/preview/live-query'
-import { Post, PostPreview, Props, getData } from '~pages/Post'
+import { Post, PostPreview, Props, getData } from '~/pages/Post'
 
 export default async function Index({ params }: Props) {
   const { data, query, draftMode } = await getData({ params })

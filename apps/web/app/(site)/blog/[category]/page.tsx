@@ -5,7 +5,7 @@ import {
   PostCategoryPreview,
   Props,
   getData,
-} from '~pages/PostCategory'
+} from '~/pages/PostCategory'
 
 export default async function Index({ params }: Props) {
   const { data, query, draftMode } = await getData({ params })

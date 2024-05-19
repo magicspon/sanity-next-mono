@@ -1,7 +1,7 @@
 import { PortableTextBlockComponent } from '@portabletext/react'
 import { Heading } from 'ui/src/primitives/Heading'
 import { Text } from 'ui/src/primitives/Text'
-import { createIdFromChildren } from '~utils/createIdFromChildren'
+import { createIdFromChildren } from '~/utils/createIdFromChildren'
 import * as style from './variants'
 
 export const createBlock = ({ variant }: style.Variant) => {

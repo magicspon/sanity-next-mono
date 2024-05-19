@@ -8,8 +8,6 @@
     "activityBarBadge.foreground": "#15202b",
     "commandCenter.border": "#e7e7e799",
     "sash.hoverBorder": "#4776ff",
-    "statusBar.background": "#1450ff",
-    "statusBar.foreground": "#e7e7e7",
     "statusBarItem.hoverBackground": "#4776ff",
     "statusBarItem.remoteBackground": "#1450ff",
     "statusBarItem.remoteForeground": "#e7e7e7",

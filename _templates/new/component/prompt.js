@@ -24,17 +24,39 @@ module.exports = {
     })
 
     let dir = ''
-    const isUi = package === 'ui' || package === 'builder'
-
+    let storybook
+    let variants
+    const isUi = package === 'ui'
     if (isUi) {
       const result = await prompter.prompt({
         type: 'select',
         name: 'uiDir',
         message: 'Package',
-        choices: getDirectories(`${directory}/${package}/src`),
+        choices: ['componenets', 'primitives'],
       })
-      dir = `/${result.uiDir}`
+      dir = `/src/${result.uiDir}`
+      result = await prompter.prompt({
+        type: 'confirm',
+        name: 'storybook',
+        message: 'Do you want to include a story:',
+      })
+
+      storybook = result.storybook
+
+      result = await prompter.prompt({
+        type: 'confirm',
+        name: 'variants',
+        message: 'Do you want to use a variants:',
+      })
+
+      variants = result.variants
     }
+
+    const { forwardRef } = await prompter.prompt({
+      type: 'confirm',
+      name: 'forwardRef',
+      message: 'Forward ref?',
+    })
 
     const { tests } = await prompter.prompt({
       type: 'confirm',
@@ -42,20 +64,16 @@ module.exports = {
       message: 'Do you want to include tests:',
     })
 
-    const { storybook } = await prompter.prompt({
-      type: 'confirm',
-      name: 'storybook',
-      message: 'Do you want to include a story:',
-    })
-
-    const basePath = `${directory}/${package}/app`
-    const path = isUi ? `${basePath}${dir}` : `${basePath}/components`
+    const basePath = `${directory}/${package}`
+    const path = isUi ? `${basePath}${dir}` : `${basePath}/app/components`
 
     return {
       path,
       tests,
       storybook,
       name,
+      forwardRef,
+      variants,
     }
   },
 }

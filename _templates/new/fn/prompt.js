@@ -1,7 +1,4 @@
-// see types of prompts:
-// https://github.com/enquirer/enquirer/tree/master/examples
-//
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { getDirectories } = require('../../utils')
 
 module.exports = {
@@ -9,7 +6,7 @@ module.exports = {
     const { name } = await prompter.prompt({
       type: 'input',
       name: 'name',
-      message: 'Enter the hook name (without `use`):',
+      message: 'Enter the function name:',
     })
 
     const { directory } = await prompter.prompt({
@@ -33,7 +30,9 @@ module.exports = {
     })
 
     const basePath = `${directory}/${package}`
-    const path = package === 'web' ? `${basePath}/app` : `${basePath}/src`
+    console.log({ directory, basePath })
+    const path =
+      directory === 'apps' ? `${basePath}/app/utils` : `${basePath}/src/utils`
 
     return {
       path,

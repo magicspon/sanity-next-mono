@@ -3,7 +3,7 @@ import { LinkSchema } from 'cms/queries/fragments/link.fragment'
 import Link from 'next/link'
 import * as React from 'react'
 import { Button, type ButtonVariants } from 'ui/src/primitives/Button'
-import { unwrapLinkTree } from '~utils/unwrapLinkTree'
+import { unwrapLinkTree } from '~/utils/unwrapLinkTree'
 
 export function Links({
   links,

@@ -1,10 +1,10 @@
 import { PortableBlocks } from 'cms/queries/fragments/portable.fragment'
 import * as React from 'react'
 import { Heading } from 'ui/src/primitives/Heading'
-import { RichText } from '~components/portable/RichText'
+import { RichText } from '~/components/portable/RichText'
 import { Stack } from 'ui/src/primitives/Stack'
 import Image from 'next/image'
-import { imageProps } from '~utils/imageProps'
+import { imageProps } from '~/utils/imageProps'
 import clsx from 'clsx'
 
 export interface TBlocksProps {}

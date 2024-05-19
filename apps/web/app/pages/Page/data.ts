@@ -2,7 +2,7 @@ import { ListingQuery, listingQuery } from 'cms/queries/pages/listing.query'
 import { PageQuery, pageQuery } from 'cms/queries/pages/page.query'
 import { getPageMetaData } from 'cms/queries/tree'
 import { notFound } from 'next/navigation'
-import { createSanityFetcher } from '~utils/createSanityFetcher'
+import { createSanityFetcher } from '~/utils/createSanityFetcher'
 
 export type Props = {
   params: {

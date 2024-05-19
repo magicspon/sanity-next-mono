@@ -175,7 +175,7 @@ const imagesBlock = defineArrayMember({
     },
   },
   components: {
-    preview: (props) => {
+    preview: (props: any) => {
       const actions = props.actions as Record<string, any>
       const images = actions.props.value.images as {
         asset: { _ref: string }
@@ -459,7 +459,7 @@ export const block = (
           },
         },
         components: {
-          preview: (props) => {
+          preview: (props: any) => {
             console.log({ props })
             return (
               <Stack>

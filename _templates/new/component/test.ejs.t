@@ -2,15 +2,14 @@
 to: "<%= tests ? `${path}/${h.changeCase.pascalCase(name)}/${h.changeCase.pascalCase(name)}.spec.tsx` : null %>"
 ---
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { composeStories } from '@storybook/testing-react';
-import * as stories from '../<%= h.changeCase.pascalCase(name) %>.stories';
+import { expect, it, describe } from 'vitest'
+import { render } from '@testing-library/react'
+import { <%= h.changeCase.pascalCase(name) %> } from './<%= h.changeCase.pascalCase(name) %>'
 
-const { Primary } = composeStories(stories);
 
-describe('<%= h.changeCase.pascalCase(name) %>', () => {
-  it('renders', () => {
-    render(<Primary />);
-    expect(screen.getByText('hello world')).toBeInTheDocument();
-  });
-});
+describe('<%= h.changeCase.pascalCase(name) %> ', async () => {
+  it('should render', async () => {
+    const { getByTestId } = render(<<%= h.changeCase.pascalCase(name) %> />)
+    expect(getByTestId('<%= h.changeCase.pascalCase(name) %>')).toBeDefined()
+  })
+})

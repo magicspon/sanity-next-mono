@@ -1,5 +1,5 @@
 import { homeQuery } from 'cms/queries/pages/home.query'
-import { createSanityFetcher } from '~utils/createSanityFetcher'
+import { createSanityFetcher } from '~/utils/createSanityFetcher'
 
 export async function getData() {
   const [draftMode, runner] = createSanityFetcher()

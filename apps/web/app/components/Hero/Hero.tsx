@@ -1,6 +1,6 @@
 import { HeroFragment } from 'cms/queries/fragments/hero.fragment'
 import * as React from 'react'
-import { Debug } from '~utils/Debug'
+import { Debug } from '~/utils/Debug'
 
 export interface THeroProps {}
 

@@ -163,16 +163,6 @@ const config = {
           },
         },
       },
-      minWidth: ({ theme }) => ({
-        ...theme('spacing'),
-      }),
-      maxWidth: ({ theme }) => ({
-        ...theme('width'),
-        container: '83rem',
-      }),
-      minHeight: ({ theme }) => ({
-        ...theme('spacing'),
-      }),
       translate: {
         'radix-toast-swipe-move-x': 'var(--radix-toast-swipe-move-x)',
         'radix-toast-swipe-move-y': 'var(--radix-toast-swipe-move-y)',

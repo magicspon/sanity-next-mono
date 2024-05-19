@@ -1,6 +1,6 @@
 import { blogCategoryQuery } from 'cms/queries/pages/blog.query'
 // import { getAllPageMetadata } from 'cms/queries/tree'
-import { createSanityFetcher } from '~utils/createSanityFetcher'
+import { createSanityFetcher } from '~/utils/createSanityFetcher'
 
 export type Props = {
   params: {
