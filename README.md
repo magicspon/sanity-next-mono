@@ -1,3 +1,7 @@
+[![Units Tests](https://github.com/magicspon/sanity-next-mono/actions/workflows/test.yml/badge.svg)](https://github.com/magicspon/sanity-next-mono/actions/workflows/test.yml)
+[![Lint & Typecheck](https://github.com/magicspon/sanity-next-mono/actions/workflows/lint.yml/badge.svg)](https://github.com/magicspon/sanity-next-mono/actions/workflows/lint.yml)
+[![Release](https://github.com/magicspon/sanity-next-mono/actions/workflows/release.yml/badge.svg)](https://github.com/magicspon/sanity-next-mono/actions/workflows/release.yml)
+
 # Sanity / Next
 
 ## Quick start
