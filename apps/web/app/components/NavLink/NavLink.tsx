@@ -1,6 +1,6 @@
 import { LinkSchema } from 'cms/queries/fragments/link.fragment'
 import * as React from 'react'
-import { unwrapLinkTree, type TLinkRef } from '~utils/unwrapLinkTree'
+import { unwrapLinkTree, type TLinkRef } from '~/utils/unwrapLinkTree'
 import { Slot } from '@radix-ui/react-slot'
 import NextLink from 'next/link'
 

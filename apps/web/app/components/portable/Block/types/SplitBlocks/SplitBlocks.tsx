@@ -4,8 +4,8 @@ import Image from 'next/image'
 import * as React from 'react'
 import { Heading } from 'ui/src/primitives/Heading'
 import { Stack } from 'ui/src/primitives/Stack'
-import { RichText } from '~components/portable/RichText'
-import { imageProps } from '~utils/imageProps'
+import { RichText } from '~/components/portable/RichText'
+import { imageProps } from '~/utils/imageProps'
 
 export interface TSplitBlocksProps {}
 

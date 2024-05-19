@@ -8,43 +8,20 @@ export default {
 
   plugins: [
     // this is a bit silly <div className="grid stack-[12_._._24] />
-    plugin(function ({ matchUtilities, theme, addComponents }) {
-      addComponents({
-        '[class*=stack]': {
-          gap: 'var(--stack)',
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        ':root': {
+          '--stack-gap': '0',
+          '--stack-gap-sm': '0',
+          '--stack-gap-md': '0',
+          '--stack-gap-lg': '0',
+          '--stack-gap-xl': '0',
         },
-      }),
-        matchUtilities({
-          stack: (value) => {
-            const values = value.split(' ')
-            const spacing = theme('spacing')
-            const breakpoints = Object.values(theme('screens')!)
-            const items = values.reduce(
-              (acc, v, i) => {
-                const space = v.startsWith('--') ? `var(${v})` : spacing?.[v]
-                if (!space) {
-                  if (v !== '.') {
-                    console.warn(`No ${v} spacing value found`)
-                  }
-                  return acc
-                }
-                if (i === 0) {
-                  acc['--stack'] = space
-                } else {
-                  const mq = breakpoints[i - 1]
-                  acc[`@media only screen and (min-width: ${mq})`] = {
-                    '--stack': space,
-                  }
-                }
-
-                return acc
-              },
-              {} as Record<string, string | Record<string, string>>,
-            )
-
-            return items
-          },
-        })
+        '.stack': {
+          display: 'grid',
+          gap: 'calc(var(--stack-gap) * var(--scale) * 1px)',
+        },
+      })
     }),
   ],
 

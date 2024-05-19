@@ -2,7 +2,7 @@ import { PortableBlocks } from 'cms/queries/fragments/portable.fragment'
 import * as React from 'react'
 import { Heading } from 'ui/src/primitives/Heading'
 import { Stack } from 'ui/src/primitives/Stack'
-import { RichText } from '~components/portable/RichText'
+import { RichText } from '~/components/portable/RichText'
 
 export interface TBlocksProps {}
 

@@ -1,5 +1,5 @@
 import { blogPostQuery } from 'cms/queries/pages/blog.query'
-import { createSanityFetcher } from '~utils/createSanityFetcher'
+import { createSanityFetcher } from '~/utils/createSanityFetcher'
 
 export type Props = {
   params: {

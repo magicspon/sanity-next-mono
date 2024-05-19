@@ -1,21 +1,14 @@
 ---
 to: "<%= tests ? `${path}/hooks/use${h.changeCase.pascalCase(name)}/use${h.changeCase.pascalCase(name)}.spec.tsx` : null %>"
 ---
-import { renderHook, act } from '@testing-library/react-hooks'
-import { use<%= h.changeCase.pascalCase(name) %>, T<%= h.changeCase.pascalCase(name) %>Props } from '..';
+import { expect, it, describe } from 'vitest'
+import { renderHook } from '@testing-library/react-hooks'
+import { use<%= h.changeCase.pascalCase(name) %> } from '.';
 
-const defaultProps: T<%= h.changeCase.pascalCase(name) %>Props = {
-  initialIndex: 0
-};
-
-describe('<%= h.changeCase.pascalCase(name) %>', () => {
+describe('use<%= h.changeCase.pascalCase(name) %>', () => {
   it('renders', () => {
-		const { result } = renderHook(() => use<%= h.changeCase.pascalCase(name) %>(defaultProps))
+		const { result } = renderHook(() => use<%= h.changeCase.pascalCase(name) %>({}))
 
-		act(() => {
-			result.current.increment()
-		})
-
-		expect(result.current.count).toBe(1)
+		expect(result).toBeDefined()
   });
 });

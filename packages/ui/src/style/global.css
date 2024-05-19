@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+:root {
+  --stack-gap: 0;
+  --stack-gap-sm: 0;
+  --stack-gap-md: 0;
+  --stack-gap-lg: 0;
+  --stack-gap-xl: 0;
+}
+.stack {
+  display: grid;
+  gap: calc(var(--stack-gap) * var(--scale) * 1px);
+}
+
+@screen sm {
+  .sm\:stack-gap {
+    gap: calc(var(--stack-gap-sm) * var(--scale) * 1px);
+  }
+}
+
+@screen md {
+  .md\:stack-gap {
+    gap: calc(var(--stack-gap-md) * var(--scale) * 1px);
+  }
+}
+
+@screen lg {
+  .lg\:stack-gap {
+    gap: calc(var(--stack-gap-lg) * var(--scale) * 1px);
+  }
+}
+
+@screen xl {
+  .xl\:stack-gap {
+    gap: calc(var(--stack-gap-xl) * var(--scale) * 1px);
+  }
+}

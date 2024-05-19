@@ -1,6 +1,6 @@
 import { LinkSchema } from 'cms/queries/fragments/link.fragment'
 import NextLink from 'next/link'
-import { unwrapLinkTree } from '~utils/unwrapLinkTree'
+import { unwrapLinkTree } from '~/utils/unwrapLinkTree'
 
 export interface TLinkProps {
   children: React.ReactNode

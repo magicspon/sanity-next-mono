@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
 import { getFirstOrNull } from 'utils/getFirstOrNull'
-import { Hero } from '~components/Hero'
-import { Block } from '~components/portable/Block'
-import { Debug } from '~utils/Debug'
+import { Hero } from '~/components/Hero'
+import { Block } from '~/components/portable/Block'
+import { Debug } from '~/utils/Debug'
 import { ListingProps, PageOrListing, PageProps } from './data'
 
 function PageTemplate({ data }: Pick<PageProps, 'data'>) {
