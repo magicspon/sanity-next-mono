@@ -27,7 +27,7 @@ pnpm dev
 - Changesets
 - Github Actions
 
-### About
+## About
 
 It uses [Turborepo](https://turborepo.org/) and contains:
 
@@ -47,6 +47,22 @@ packages
  └─ utils
      └─ utility functions
 ```
+
+## Contributing
+
+All commit messages must adhere the gitmoji commitlint conventions
+
+```base
+:sparkles: feat(changelog): support chinese title
+
+:bug: fix(config): fix a subject bug
+
+:memo: docs: update README.md
+
+:bulb: docs(plugin): update comments
+```
+
+[More emoji here](https://gitmoji.dev/)
 
 ### Sanity
 
