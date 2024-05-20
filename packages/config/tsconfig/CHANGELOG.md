@@ -1,5 +1,11 @@
 # tsconfig
 
+## 4.0.0
+
+### Major Changes
+
+- b1dacf3: Primitive storybooks and code gen tools
+
 ## 3.0.0
 
 ### Major Changes

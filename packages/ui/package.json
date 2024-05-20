@@ -1,6 +1,6 @@
 {
   "name": "ui",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
@@ -27,13 +27,13 @@
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
-    "eslint-config-custom": "3.0.0",
+    "eslint-config-custom": "4.0.0",
     "eslint-plugin-storybook": "^0.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "^8.1.1",
-    "tailwind-config": "3.0.0",
-    "tsconfig": "3.0.0",
+    "tailwind-config": "4.0.0",
+    "tsconfig": "4.0.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
