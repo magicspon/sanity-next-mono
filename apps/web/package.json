@@ -1,7 +1,7 @@
 {
   "name": "web",
   "private": true,
-  "version": "3.0.0",
+  "version": "4.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,7 +25,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "cms": "3.0.0",
+    "cms": "4.0.0",
     "dotenv": "^16.4.5",
     "eslint": "8.57.0",
     "framer-motion": "^11.2.4",
@@ -36,10 +36,10 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.51.4",
     "react-hook-form-persist": "^3.0.0",
-    "tailwind-config": "3.0.0",
-    "ui": "3.0.0",
+    "tailwind-config": "4.0.0",
+    "ui": "4.0.0",
     "usehooks-ts": "^3.1.0",
-    "utils": "3.0.0",
+    "utils": "4.0.0",
     "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },
@@ -49,10 +49,10 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "eslint-config-custom": "3.0.0",
+    "eslint-config-custom": "4.0.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "tsconfig": "3.0.0",
+    "tsconfig": "4.0.0",
     "typescript": "^5.4.5"
   }
 }

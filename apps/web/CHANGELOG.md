@@ -1,5 +1,19 @@
 # web
 
+## 4.0.0
+
+### Major Changes
+
+- b1dacf3: Primitive storybooks and code gen tools
+
+### Patch Changes
+
+- Updated dependencies [b1dacf3]
+  - tailwind-config@4.0.0
+  - utils@4.0.0
+  - ui@4.0.0
+  - cms@4.0.0
+
 ## 3.0.0
 
 ### Major Changes
