@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@capsizecss/core": "^4.1.2",
-    "@capsizecss/metrics": "^2.2.0",
+    "@capsizecss/metrics": "^3.1.0",
     "@hookform/resolvers": "^3.4.0",
     "@portabletext/react": "^3.0.18",
     "@radix-ui/react-slot": "^1.0.2",
