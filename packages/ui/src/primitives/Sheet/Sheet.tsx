@@ -105,10 +105,10 @@ export function Footer({
   )
 }
 
-export const SheetTitle = React.forwardRef<
+export const Title = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
->(function SheetTitle({ className, ...props }, ref) {
+>(function Title({ className, ...props }, ref) {
   return (
     <SheetPrimitive.Title
       ref={ref}
@@ -118,10 +118,10 @@ export const SheetTitle = React.forwardRef<
   )
 })
 
-export const SheetDescription = React.forwardRef<
+export const Description = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
->(function SheetDescription({ className, ...props }, ref) {
+>(function Description({ className, ...props }, ref) {
   return (
     <SheetPrimitive.Description
       ref={ref}

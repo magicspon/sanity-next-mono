@@ -144,7 +144,7 @@ export const usePrevNextButtons = (
 export type TCarouselProps = {
   options?: EmblaOptionsType
   plugins?: EmblaPluginType
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export function Root({ options, plugins, children }: TCarouselProps) {

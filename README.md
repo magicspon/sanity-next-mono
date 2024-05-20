@@ -48,6 +48,22 @@ packages
      └─ utility functions
 ```
 
+## Contributing
+
+All commit messages must adhere the gitmoji commitlint conventions
+
+```base
+:sparkles: feat(changelog): support chinese title
+
+:bug: fix(config): fix a subject bug
+
+:memo: docs: update README.md
+
+:bulb: docs(plugin): update comments
+```
+
+[More emoji here](https://gitmoji.dev/)
+
 ### Sanity
 
 Includes live preview, singletons, nested documents [via Sanity page tree](https://github.com/Q42/sanity-plugin-page-tree)
