@@ -27,7 +27,7 @@ pnpm dev
 - Changesets
 - Github Actions
 
-## About
+### About
 
 It uses [Turborepo](https://turborepo.org/) and contains:
 
