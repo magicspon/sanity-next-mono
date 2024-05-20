@@ -24,7 +24,7 @@
     "@sanity/vision": "3.34.0",
     "get-youtube-id": "^1.0.1",
     "groqd": "^0.15.11",
-    "groqd-playground": "^0.0.18",
+    "groqd-playground": "^0.0.19",
     "marked": "^12.0.2",
     "nanoid": "^5.0.7",
     "next-sanity": "^8.5.5",
