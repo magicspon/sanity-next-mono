@@ -1,9 +1,9 @@
+import { Spinner } from '.'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Text } from '.'
 
 const meta = {
-  title: 'primitives/Text',
-  component: Text,
+  title: 'primitives/Spinner',
+  component: Spinner,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,13 +14,18 @@ const meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-} satisfies Meta<typeof Text>
+} satisfies Meta<typeof Spinner>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: 'Hello world',
+    // type: 'Spinner',
   },
+  render: () => (
+    <div className="w-5 mx-auto">
+      <Spinner />
+    </div>
+  ),
 }

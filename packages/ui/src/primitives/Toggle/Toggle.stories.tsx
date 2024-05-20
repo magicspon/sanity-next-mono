@@ -1,9 +1,10 @@
+import * as React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Text } from '.'
+import { Toggle } from '.'
 
 const meta = {
-  title: 'primitives/Text',
-  component: Text,
+  title: 'primitives/Toggle',
+  component: Toggle,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
@@ -14,13 +15,14 @@ const meta = {
   argTypes: {},
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {},
-} satisfies Meta<typeof Text>
+} satisfies Meta<typeof Toggle>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: 'Hello world',
+    // type: 'Toggle',
   },
+  render: () => <Toggle>Hello</Toggle>,
 }
