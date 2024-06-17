@@ -20,7 +20,7 @@
     "@sanity/icons": "^2.11.8",
     "@sanity/image-url": "^1.0.2",
     "@sanity/orderable-document-list": "^1.2.1",
-    "@sanity/ui": "^2.1.11",
+    "@sanity/ui": "^2.4.0",
     "@sanity/vision": "3.34.0",
     "get-youtube-id": "^1.0.1",
     "groqd": "^0.15.11",
